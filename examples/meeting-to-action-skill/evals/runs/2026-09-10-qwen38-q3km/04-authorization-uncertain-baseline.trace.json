@@ -1,0 +1,15 @@
+{
+  "schema_version": "1.0",
+  "recorded_at_utc": "2026-09-10T07:30:07.902317+00:00",
+  "teaching_scope": "local_classroom_simulation_not_production",
+  "model": "qwen38-q3km:latest",
+  "mode": "baseline",
+  "input_file": "examples/meeting-to-action-skill/examples/04-authorization-uncertain-input.md",
+  "input_sha256": "6e3e4959ba6d4ac0346f76a24d4d0abef1959a8348a94c4d042bdb28c09a71b5",
+  "temperature": 0,
+  "seed": 42,
+  "stopped_before_model": true,
+  "stop_reason": "authorization_not_approved",
+  "elapsed_ms": 0,
+  "output_sha256": "f78de9e38429f0b72c47be012a7a5fd2ccd093e337b221c78a03cbd7a4fdb9ff"
+}

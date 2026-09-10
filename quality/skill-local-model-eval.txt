@@ -1,0 +1,6 @@
+PASS 01-normal
+PASS 02-missing-fields
+PASS 03-conflict
+PASS 04-authorization-uncertain
+SUMMARY: 4/4 cases passed
+LIMIT: 小样本教学断言不证明业务完整性、生产准确率或内部合规。

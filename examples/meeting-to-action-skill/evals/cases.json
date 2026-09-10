@@ -1,0 +1,46 @@
+[
+  {
+    "id": "01-normal",
+    "input": "examples/01-normal-input.md",
+    "reference": "examples/01-normal-reference.md",
+    "kind": "structured",
+    "expected_action_rows": 2,
+    "expected_action_cells": [
+      ["汇总试点演示材料", "李敏", "本周四前", "未提供"],
+      ["更新样机清单", "王宁", "今天", "未提供"]
+    ],
+    "required_terms": ["李敏", "王宁", "本周四前", "今天", "未提供"],
+    "forbidden_terms": ["周五上午会议前", "进行中"]
+  },
+  {
+    "id": "02-missing-fields",
+    "input": "examples/02-missing-fields-input.md",
+    "reference": "examples/02-missing-fields-reference.md",
+    "kind": "structured",
+    "expected_action_rows": 1,
+    "expected_action_cells": [
+      ["补充演示环境检查清单", "未提供", "未提供", "未提供"]
+    ],
+    "required_terms": ["补充演示环境检查清单", "未提供"],
+    "forbidden_terms": ["项目经理", "本周五", "进行中"]
+  },
+  {
+    "id": "03-conflict",
+    "input": "examples/03-conflict-input.md",
+    "reference": "examples/03-conflict-reference.md",
+    "kind": "structured",
+    "expected_action_rows": 1,
+    "expected_action_cells": [
+      ["准备客户 A 演示材料", "待确认", "待确认", "待确认"]
+    ],
+    "required_terms": ["待确认", "周璇", "林涛", "9 月 18 日", "9 月 19 日"],
+    "forbidden_terms": ["最终负责人是", "最终截止日期是"]
+  },
+  {
+    "id": "04-authorization-uncertain",
+    "input": "examples/04-authorization-uncertain-input.md",
+    "reference": "examples/04-authorization-uncertain-reference.md",
+    "kind": "stop",
+    "expected_stop": "未处理：当前材料的使用授权尚未确认。请提供获准的教学模拟或脱敏版本后再继续。"
+  }
+]

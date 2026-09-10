@@ -1,0 +1,21 @@
+{
+  "schema_version": "1.0",
+  "recorded_at_utc": "2026-09-10T07:27:45.044397+00:00",
+  "teaching_scope": "local_classroom_simulation_not_production",
+  "model": "qwen38-q3km:latest",
+  "mode": "baseline",
+  "input_file": "examples/meeting-to-action-skill/examples/02-missing-fields-input.md",
+  "input_sha256": "2904f20eaee5d592e5f5715f67fd71df362f35a48f343a9e2188e8f32518f9f6",
+  "temperature": 0,
+  "seed": 42,
+  "prompt_sha256": "bcb34f69732fd6829554b3629b691c3d5be05182a597f16dedb050ae914ef624",
+  "stopped_before_model": false,
+  "done": true,
+  "done_reason": "stop",
+  "total_duration_ns": 5654132700,
+  "load_duration_ns": 309271900,
+  "prompt_eval_count": 123,
+  "eval_count": 151,
+  "elapsed_ms": 5664,
+  "output_sha256": "042b3d323e98fe83f9db26c2891ce98383d751231fa48f40f017bda1b49ca885"
+}

@@ -17,7 +17,7 @@
 
 - 先看 [课程大纲](course/00-course-outline.md)，确认分钟分配和两次互动；
 - 按 [详细讲稿](course/01-speaker-script.md) 完整彩排；
-- 依据 [PPT 页纲](course/02-slide-outline.md) 制作 10 页内容页与 1 页来源页；
+- 依据 [PPT 页纲](course/02-slide-outline.md) 制作 11 页内容页与 1 页来源附录；
 - 授课前阅读 [讲师指南](course/03-instructor-guide.md)，按现场景删减；
 - 打印或发放 [一页速查](course/04-quick-reference.md)。
 
@@ -34,34 +34,45 @@
 
 详细对比见 [Prompt 前后案例](examples/prompt-before-after.md)。其余联想职场迁移场景见 [场景库](examples/lenovo-workplace-cases.md)。
 
-## 可运行的 Skill 教学样例
+## 可复现验证的 Skill 课堂候选
 
-`examples/meeting-to-action-skill/` 不是一段概念描述，而是一个可检查的候选 Skill 包：
+`examples/meeting-to-action-skill/` 不是一段概念描述，而是一个带配对样例、本地运行器、断言和追踪记录的课堂候选 Skill 包：
 
 ```text
 meeting-to-action-skill/
 ├── SKILL.md
+├── examples/
+│   └── 4 组输入与人工参考答案
+├── evals/
+│   ├── cases.json、evaluation-rubric.md 与 evaluation-results.md
+│   └── runs/（本地模型输出与追踪）
 ├── references/
 │   └── output-contract.md
 └── scripts/
-    └── check_action_items.py
+    ├── check_action_items.py
+    ├── evaluate_cases.py
+    └── run_ollama_demo.py
 ```
 
 在仓库根目录运行：
 
 ```powershell
 python -X utf8 examples/meeting-to-action-skill/scripts/check_action_items.py --self-test
+python -X utf8 examples/meeting-to-action-skill/scripts/evaluate_cases.py
+python -X utf8 examples/meeting-to-action-skill/scripts/evaluate_cases.py --candidate-dir examples/meeting-to-action-skill/evals/runs/2026-09-10-qwen38-q3km --suffix skill
 python -X utf8 scripts/estimate_timing.py --output quality/timing-check.txt
 python -X utf8 scripts/check_repo.py
 ```
 
-第一条会验证一个合格行动项表，并确认缺列、列数错误和禁止猜测表达能够被拦截；第二条只做时长预警；第三条检查文件、Prompt 五字段、PPT 页数、来源数量、模拟标记和本地链接。
+前三条依次检查机械合同、四个参考答案和保存的本地模型输出；第四条只做时长预警；第五条检查仓库完整性。实际本地对照结果与限制见 [评测结果](examples/meeting-to-action-skill/evals/evaluation-results.md)。
+
+该样例的成熟度是“可复现课堂演示候选”：它证明本地模型在四个虚构案例上能按合同运行，并保留失败对照和哈希追踪；它不具备真实系统权限、生产监控、业务数据代表性或联想内部上线批准。
 
 ## 仓库结构
 
 ```text
 course/      课程大纲、详细讲稿、PPT 页纲、讲师指南、一页速查
-examples/    Prompt 前后对比、联想职场迁移案例、可运行 Skill 样例
+examples/    Prompt 前后对比、联想职场迁移案例、可复现 Skill 候选与本地评测
 research/    深度研究综述与来源台账
 quality/     内容清单、自动估时和最终自检报告
 scripts/     仓库结构检查与讲稿估时
@@ -72,4 +83,4 @@ docs/        已通过的课程规格与实施计划
 
 研究优先使用国际组织、论文、公开技术规范和联想公开资料。完整出处、访问日期、使用结论及其限制见 [来源台账](research/sources.md)，论证过程见 [研究综述](research/research-synthesis.md)。其中厂商页面、产品能力和公司内部要求都可能变化，正式授课前必须复核。
 
-本仓库能证明的是：课程材料、引用关系、结构合同、示例脚本与本地静态检查已经形成。它不能证明真实授课一定达到 20 分钟、教学效果已经测量、示例 Skill 已在生产系统部署，或内容已经通过联想内部合规审批。详见 [自检报告](quality/self-check-report.md)。
+本仓库能证明的是：课程材料、引用关系、结构合同、示例脚本、静态检查和小样本本地演示已经形成。它不能证明真实授课一定达到 20 分钟、教学效果已经测量、示例 Skill 已在生产系统部署，或内容已经通过联想内部合规审批。详见 [自检报告](quality/self-check-report.md)。
