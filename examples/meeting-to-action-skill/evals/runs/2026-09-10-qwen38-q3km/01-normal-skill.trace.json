@@ -1,0 +1,23 @@
+{
+  "schema_version": "1.0",
+  "recorded_at_utc": "2026-09-10T07:37:00.744224+00:00",
+  "teaching_scope": "local_classroom_simulation_not_production",
+  "model": "qwen38-q3km:latest",
+  "mode": "skill",
+  "input_file": "examples/meeting-to-action-skill/examples/01-normal-input.md",
+  "input_sha256": "d59b5808e450db14b5c1a016eb34e89868d40750303aedb86a128f41dc3e49e8",
+  "temperature": 0,
+  "seed": 42,
+  "skill_sha256": "20e9a76869a1a36c7645c66cd9a2245c1469d29a1dc734995964848d5c9eebe3",
+  "contract_sha256": "ad7123dc2779522d6c6453ab33c4d79e6bcfa53878e70d7aeaaa5175d33a1dbf",
+  "prompt_sha256": "77e02f89e56d166ed886d271594be57784dbae6042e74d084f6c80effcb586c4",
+  "stopped_before_model": false,
+  "done": true,
+  "done_reason": "stop",
+  "total_duration_ns": 11352354600,
+  "load_duration_ns": 269156100,
+  "prompt_eval_count": 1649,
+  "eval_count": 292,
+  "elapsed_ms": 11368,
+  "output_sha256": "82425ffa6cd9c7a8fd1cdc60ecfd26953595079c32f2abfb84b8e748272b9a9c"
+}

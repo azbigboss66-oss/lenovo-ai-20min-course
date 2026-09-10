@@ -1,0 +1,23 @@
+{
+  "schema_version": "1.0",
+  "recorded_at_utc": "2026-09-10T07:37:18.558551+00:00",
+  "teaching_scope": "local_classroom_simulation_not_production",
+  "model": "qwen38-q3km:latest",
+  "mode": "skill",
+  "input_file": "examples/meeting-to-action-skill/examples/03-conflict-input.md",
+  "input_sha256": "904d049508b4be349cc68de2b42456934dd2ad602acef94b81c1070d018f12be",
+  "temperature": 0,
+  "seed": 42,
+  "skill_sha256": "20e9a76869a1a36c7645c66cd9a2245c1469d29a1dc734995964848d5c9eebe3",
+  "contract_sha256": "ad7123dc2779522d6c6453ab33c4d79e6bcfa53878e70d7aeaaa5175d33a1dbf",
+  "prompt_sha256": "916294cc107dd39f45c37381bea1639d19bc1635cf6ee0ec14659d73224c210f",
+  "stopped_before_model": false,
+  "done": true,
+  "done_reason": "stop",
+  "total_duration_ns": 10887525200,
+  "load_duration_ns": 259238600,
+  "prompt_eval_count": 1614,
+  "eval_count": 323,
+  "elapsed_ms": 10900,
+  "output_sha256": "4a7dfcd423df432b5e0f862a8ba9520b8135f076aa5edddeab9e529c69ad988f"
+}

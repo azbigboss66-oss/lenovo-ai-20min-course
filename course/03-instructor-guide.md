@@ -9,8 +9,9 @@
 1. 阅读 [课程大纲](00-course-outline.md) 和 [详细讲稿](01-speaker-script.md)。
 2. 熟悉 [Prompt 前后对照](../examples/prompt-before-after.md)，确认所有姓名和项目均为模拟。
 3. 在实际授课环境中核对公司当时批准的 AI 工具、数据输入和内部政策。公开课程材料不能替代这些要求。
-4. 运行 `python scripts/estimate_timing.py` 和 `python scripts/check_repo.py`。
-5. 至少完整彩排一次，记录每段实际用时；优先保证 Prompt、Skill 和技术选择三段。
+4. 从仓库根目录运行 `python -X utf8 examples/meeting-to-action-skill/scripts/evaluate_cases.py`、`python -X utf8 scripts/estimate_timing.py` 和 `python -X utf8 scripts/check_repo.py`。
+5. 打开 [本地模型对照](../examples/meeting-to-action-skill/evals/evaluation-results.md)，确认会解释基线 `1/4`、Skill `4/4` 以及小样本边界。课堂优先展示已保存结果；若现场模型失败，立即切回静态输出，不占用课程时间排障。
+6. 至少完整彩排一次，记录每段实际用时；优先保证 Prompt、Skill 和技术选择三段。
 
 ## 发音与术语
 
@@ -67,6 +68,12 @@
 - 不展示实时联网或厂商界面，避免产品版本、网络和账号干扰主线。
 - 不引用或播放视频；所有信息用图、表、文字和口头解释呈现。
 
+## Skill 演示方式
+
+优先展示仓库已保存的正常案例输入、基线输出、Skill 输出和评测结果，不依赖现场模型速度。若要现场运行，只能使用获准环境和教学模拟输入；先运行参考答案评测，再运行本地模型脚本。授权不明案例必须展示追踪中的 `stopped_before_model: true`，说明正文没有发送给模型。
+
+不要只报 `4/4`。完整话术是：“四个教学样例中，模糊基线通过一组，Skill 通过四组；其中授权案例由运行器在模型前停止。这个快照证明过程合同在小样本上改善可检查性，不证明生产准确率。”
+
 ## 超时删减顺序
 
 若彩排超过 20 分钟，按以下顺序删减：
@@ -98,6 +105,7 @@
 - 完整讲稿：`course/01-speaker-script.md`
 - Prompt 可复制案例：`examples/prompt-before-after.md`
 - Skill 示例：`examples/meeting-to-action-skill/`
+- Skill 本地对照：`examples/meeting-to-action-skill/evals/evaluation-results.md`
 - 技术选择练习：`examples/lenovo-workplace-cases.md`
 - 一页速查：`course/04-quick-reference.md`
 - 研究和来源：`research/`
