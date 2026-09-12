@@ -166,7 +166,8 @@
 
 - [x] 更新 README 的使用路径、课程表、构建命令、品牌来源和边界。
 - [x] 运行全部验证并检查 `git diff --check`、状态和提交范围。
-- [ ] 提交并推送 `curriculum-v2`，创建 Pull Request。
+- [x] 提交并推送 `curriculum-v2` 远端分支。
+- [ ] 创建 Pull Request。
 - [ ] 在 Edge 核对 PR 文件数量、关键路径和未丢失内容；把合并动作留给用户。
 
 ## Verification Coverage Map
