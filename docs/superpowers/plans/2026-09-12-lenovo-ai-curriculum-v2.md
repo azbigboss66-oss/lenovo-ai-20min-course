@@ -170,9 +170,9 @@
 - [x] 删除旧单课教材及其专属旧证据，让七课成为仓库唯一正式教材。
 - [x] 增加五项讲师判断，并把观点表达写入七课开场和 HTML 总览。
 - [x] 运行全部验证并检查 `git diff --check`、状态和提交范围。
-- [ ] 提交并推送 `curriculum-v2` 远端分支。
-- [ ] 创建 Pull Request。
-- [ ] 在 Edge 核对 PR 文件数量、关键路径和未丢失内容；把合并动作留给用户。
+- [x] 提交并推送 `curriculum-v2` 远端分支。
+- [x] 创建 Pull Request：[#3 feat: 以七课课程链替换联想 AI 单课教材](https://github.com/azbigboss66-oss/lenovo-ai-20min-course/pull/3)。
+- [x] 在 Edge 核对 PR 为 `curriculum-v2` → `master`、Open、Ready to merge；84 个变更文件中包含课程立场、七课 28 份材料、8 个 HTML 页面、质量证据和旧单课删除项。合并动作留给用户。
 
 ## Verification Coverage Map
 
