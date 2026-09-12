@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="联想场景特化的 AI 工作方法系列课，全部案例为教学模拟。">
+  <title>工具、工作流与 Agent：自主性必须有边界｜AI 工作新方法</title>
+  <link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到正文</a>
+  <header class="topbar">
+  <a class="course-brand" href="../index.html">AI 工作新方法</a>
+  <nav aria-label="全局导航">
+    <a href="../index.html#positions">课程立场</a>
+    <a href="../index.html#course-map">课程总览</a>
+    <a href="../index.html#instructor">讲师指南</a>
+  </nav>
+  <img class="lenovo-logo" src="../assets/brand/lenovo-logo-red-horizontal.webp" width="120" height="40" alt="Lenovo">
+</header>
+<div class="lesson-shell" data-lesson="05">
+  <aside class="lesson-rail" aria-label="课程目录"><div class="rail-title">联想内部 AI 课程<small>从认知到实践</small></div><nav><a href="../lessons/01.html"><span>01</span>AI 从零开始</a><a href="../lessons/02.html"><span>02</span>Prompt 工作合同</a><a href="../lessons/03.html"><span>03</span>证据、数据与 RAG</a><a href="../lessons/04.html"><span>04</span>Skill 工作能力</a><a href="../lessons/05.html" aria-current="page" class="active"><span>05</span>工具、工作流与 Agent</a><a href="../lessons/06.html"><span>06</span>评测与模型升级</a><a href="../lessons/07.html"><span>07</span>联想场景综合实战</a></nav><div class="progress-block"><span>学习进度</span><progress value="5" max="7">5/7</progress><small>5 / 7</small></div></aside>
+  <main id="main" class="lesson-main">
+    <div class="lesson-toolbar"><span>25 分钟 · 含练习</span><div><button type="button" class="toolbar-button" data-action="copy-page">复制本课提纲</button><button type="button" class="toolbar-button" data-action="toggle-instructor" aria-pressed="false">讲师模式</button></div></div>
+    <article class="lesson-content" id="lesson-outline"><h1 id="第-05-课-工具-工作流与-Agent-自主性必须有边界">第 05 课｜工具、工作流与 Agent：自主性必须有边界</h1>
+<blockquote>计划 25 分钟｜教学模拟｜主要产出：权限与人工审批图</blockquote>
+<h2 id="下课时你能做到">下课时你能做到</h2>
+<ol>
+<li>区分语言生成、工具调用、固定工作流和 Agent。</li>
+<li>按“只读—写入—对外—不可逆”判断动作风险。</li>
+<li>为高影响动作设置授权、预览、确认、日志和停止条件。</li>
+<li>判断什么时候固定工作流比 Agent 更合适。</li>
+</ol>
+<h2 id="自主性阶梯">自主性阶梯</h2>
+<p>生成草稿 → 调用只读工具 → 按固定工作流执行 → Agent 动态选择工具 → 高影响动作人工批准</p>
+<h2 id="最小控制面">最小控制面</h2>
+<p>允许工具清单、最小权限、参数校验、预算/超时、人工确认、Trace、失败回滚。</p>
+<h2 id="来源">来源</h2>
+<p>[11][12][19][20][32][36][39]</p></article>
+    <section class="exercise-panel"><div class="section-label">动手练习</div><h2 id="第-05-课练习-选择最小充分架构">第 05 课练习｜选择最小充分架构</h2>
+<blockquote>教学模拟｜建议 4 分钟</blockquote>
+<p>为每个场景选择“模型生成 / 只读工具 / 固定工作流 / 受限 Agent”，写出允许动作和人工确认点。</p>
+<div class="table-wrap"><table><thead><tr><th>场景</th><th>选择架构</th><th>允许动作</th><th>人工确认点</th></tr></thead><tbody><tr><td>A. 把已提供的公开产品文案改写为三种语气</td><td></td><td></td><td></td></tr><tr><td>B. 每周从固定表格字段生成同格式进度草稿</td><td></td><td></td><td></td></tr><tr><td>C. 面对多种未知错误码，在获准范围内选择不同只读日志查询</td><td></td><td></td><td></td></tr><tr><td>D. 根据分析结果给渠道伙伴发送状态通知</td><td></td><td></td><td></td></tr></tbody></table></div>
+<p>如果选择 Agent，再补充：允许工具清单、最大步骤、超时/失败停止和不得执行的动作。</p><details><summary>显示参考答案</summary><div class="answer-content"><h2 id="第-05-课参考答案-架构随风险升级">第 05 课参考答案｜架构随风险升级</h2>
+<blockquote>教学模拟。真实权限以当时有效的内部控制为准。</blockquote>
+<div class="table-wrap"><table><thead><tr><th>场景</th><th>推荐起点</th><th>理由与确认点</th></tr></thead><tbody><tr><td>A</td><td>模型生成</td><td>输入已提供且是公开内容；作者检查事实与语气即可，无需工具。</td></tr><tr><td>B</td><td>固定工作流 + Skill</td><td>路径和字段稳定；在发布周报前由负责人检查未知项和数字。</td></tr><tr><td>C</td><td>受限 Agent + 只读工具</td><td>调查路径可能随错误码变化；限制到当前工单、只读、最多 6 步，根因由工程师确认。</td></tr><tr><td>D</td><td>先生成草稿，发送工具置于人工批准之后</td><td>对外发送代表组织表达；确认收件人、正文、附件和依据后才能调用发送。</td></tr></tbody></table></div>
+<h3 id="评分标准">评分标准</h3>
+<ul>
+<li>架构选择每题 1 分；理由每题 1 分；共 8 分。</li>
+<li>为 C 写出工具范围、最大步骤和停止条件，加 1 分。</li>
+<li>为 D 明确“预览后人工批准”，加 1 分。</li>
+<li>如果 D 允许 Agent 无确认发送，最高 5 分。</li>
+</ul></div></details></section>
+    <section class="speaker-panel" aria-label="详细讲稿"><div class="section-label">讲师专用</div><h2 id="第-05-课详细讲稿-工具-工作流与-Agent-自主性必须有边界">第 05 课详细讲稿｜工具、工作流与 Agent：自主性必须有边界</h2>
+<blockquote>建议 25 分钟；其中架构判断练习与讨论约 6 分钟。</blockquote>
+<h3 id="0-00-2-30-文字里说-已完成-不代表系统里真的发生">0:00–2:30｜文字里说“已完成”，不代表系统里真的发生</h3>
+<p>前四课都主要处理信息。现在加入动作。教学模拟中，一张服务工单要求：“查看最近日志，判断可能原因，更新工单状态，并向渠道伙伴发送通知。”如果只让语言模型回答，它可能写：“已完成更新并通知相关方。”但文字中的“已完成”不等于系统执行成功。</p>
+<p>我对 Agent 的态度不是追新，也不是拒绝，而是把自主性看成一笔风险预算。每让系统多决定一步，就要同时回答权限从哪里来、证据留在哪里、失败怎样停止、影响由谁承担。</p>
+<p>真正的外部动作需要工具：日志查询接口、工单 API、消息或邮件系统。工具一旦连接，AI 的错误就可能从一段错误文字变成真实状态变化。所以本课不是教大家追求最高自主性，而是学会把自主性和权限、风险、证据放在一起设计。</p>
+<h3 id="2-30-6-00-四个层次-模型-工具-工作流-Agent">2:30–6:00｜四个层次：模型、工具、工作流、Agent</h3>
+<p>第一层是模型生成。输入文字，输出摘要、分类或草稿；它本身没有访问系统的能力。</p>
+<p>第二层是工具调用。系统给模型一组明确函数，例如“读取工单”“查询只读日志”“保存草稿”。模型可以选择参数，真正执行由工具层完成。工具必须验证身份、权限和参数，不能相信模型说“我有权限”。</p>
+<p>第三层是固定工作流。步骤由代码或规则预先定义：读取工单 → 查询指定时间范围日志 → 生成原因候选 → 人工选择 → 保存内部草稿。路径清楚、异常可枚举时，固定工作流往往更稳、更便宜、更容易审计。</p>
+<p>第四层是 Agent。它根据目标和环境反馈动态决定下一步：可能先查工单，再根据错误码选择日志工具，然后补查知识库。ReAct 研究展示了推理与行动交错的基本模式。Agent 更灵活，但每一步都可能选错工具、传错参数或放大前一步误差。</p>
+<p>“能动态规划”不是自动升级。只有任务路径确实不可预先列出，而且动态选择带来的收益在评测中超过成本与风险，才值得使用 Agent。</p>
+<h3 id="6-00-10-00-动作风险不是一个-是否敏感-的开关">6:00–10:00｜动作风险不是一个“是否敏感”的开关</h3>
+<p>我们把动作分四级。</p>
+<p>一级，只读：读取获准的工单、知识库或指标。风险仍包括越权读取、范围过大和敏感内容进入日志，但通常不改变外部状态。</p>
+<p>二级，内部写入：保存草稿、添加内部标签、更新非关键字段。需要明确账户、允许字段、版本冲突和撤销方式。</p>
+<p>三级，对外动作：给客户或伙伴发送消息、发布内容、创建会议。它会代表组织表达，必须预览收件人、正文和附件，并在发送前由有权人员确认。</p>
+<p>四级，不可逆或高影响动作：删除数据、改变权限、批准付款、正式承诺价格或交期。这类动作通常不应由初级 Agent 自动完成，需要更严格的授权或完全排除。</p>
+<p>风险分级要看情境。读取普通公开文档和读取含客户数据的工单都叫“读取”，控制要求却不同。一个按钮是否可撤销、影响范围多大、错误是否容易发现，都会改变设计。</p>
+<h3 id="10-00-14-00-最小控制面-把-请谨慎-变成系统规则">10:00–14:00｜最小控制面：把“请谨慎”变成系统规则</h3>
+<p>第一，允许工具清单。只暴露完成任务所需的工具，不让 Agent 自由访问所有系统。</p>
+<p>第二，最小权限。读取就不给写入；只能建草稿就不给发送；只能改当前工单就不给批量修改。</p>
+<p>第三，参数校验。工单编号、时间范围、收件人和状态值都由程序校验；不要让模型生成任意查询或任意地址。</p>
+<p>第四，预算、超时和无进展停止。Agent 不应无限循环尝试。预算不只是 token，也包括工具次数、耗时、影响范围和连续失败。</p>
+<p>第五，人工确认。确认点必须展示将发生什么、作用于谁、使用什么参数，以及是否可撤销。一个只写“是否继续”的弹窗价值有限。</p>
+<p>第六，Trace 与回滚。记录输入版本、工具调用、参数摘要、结果、人工决定和停止原因。可撤销动作定义回滚；不能可靠回滚的动作提高审批等级。</p>
+<p>多步系统还要防止错误累积。假设每一步有九成把握，连续多步并不会自动保持九成；前一步拿错工单，后面再好的摘要也建立在错误对象上。因此每次工具调用后都要验证机器可检查的结果：返回对象是否匹配工单号、时间范围是否正确、状态码是否成功、结果是否为空。高风险链路在影响扩大前设置检查点，不要等到最后一封邮件生成完才发现第一步读错了数据。</p>
+<p>工具失败也不能由语言模型用文字“修复”。超时、权限不足、参数非法和空结果应由运行层返回明确状态；模型只能解释或提出下一步，不能把失败包装成成功。连续失败达到阈值时停止，保留已经完成的只读证据并交给人。</p>
+<h3 id="14-00-17-30-完整示范-服务问题分析停在发送之前">14:00–17:30｜完整示范：服务问题分析停在发送之前</h3>
+<p>回到模拟工单。更合适的流程是：</p>
+<p>一，用户选择工单，系统验证他是否有读取权限。二，只读取该工单关联时间窗口的脱敏日志。三，模型列出三个原因候选，每个候选附日志证据和不确定性。四，规则检查没有把猜测写成根因。五，生成内部处理建议和对外通知草稿。六，在屏幕上预览工单号、目标状态、收件人、正文和引用。七，由负责人确认后，外部系统才执行更新或发送。</p>
+<p>在这里，Agent 可以帮助动态选择查询，但它不能自行宣布根因，也不能跳过确认。若日志为空、工具报错、需要超出当前工单的数据、收件人不在允许范围，系统停止并转人。</p>
+<p>如果流程每次都完全相同，固定工作流比 Agent 更合适。只有错误类型很多、调查路径确实变化，才考虑在“只读分析”范围内引入 Agent，然后把写入和发送仍放到确定性审批之后。</p>
+<p>还可以设置“权限递增”策略：候选阶段只生成；验证阶段开放限定只读；受控试点允许保存草稿；只有独立评测、审计和责任确认都满足后，才讨论更高影响动作。这样每次扩权都有证据门槛，也有可退回的上一级，而不是从聊天演示直接跳到自动执行。</p>
+<h3 id="17-30-22-00-练习-为四个场景选择架构和确认点">17:30–22:00｜练习：为四个场景选择架构和确认点</h3>
+<p>请打开练习。每个场景选择“模型生成、只读工具、固定工作流或 Agent”，并标出人工确认点。四分钟完成。</p>
+<p>（两分钟个人判断；一分钟小组比较差异；一分钟讲师随机追问：为什么不用更高级的方案？）</p>
+<p>讲评的关键是“最小充分方案”。公开资料改写只需要模型生成。固定字段的每周报告适合工作流加 Skill。未知故障的只读调查可能需要受限 Agent。对外发送不因前面使用了 Agent 就自动放行，仍要人工确认。</p>
+<p>如果答案是 Agent，还必须写清允许工具、最大步骤和停止条件；只写“因为任务复杂”不够。复杂任务也可能通过拆分为多个固定步骤解决。</p>
+<h3 id="22-00-25-00-收束-专业不是放大自主性-而是匹配自主性">22:00–25:00｜收束：专业不是放大自主性，而是匹配自主性</h3>
+<p>请记住四个层次和四级动作风险。工具解决“模型如何接触外部状态”；工作流解决“路径如何稳定”；Agent 解决“路径需要动态选择”；人工审批解决“责任不能交给模型”。</p>
+<p>下一课会回答一个更难的问题：怎样证明 Agent、Skill 或微调真的比简单方案更好？我们会建立任务集、基线、评分和技术选择矩阵。</p>
+<p>今天带回岗位的动作：画出你正在考虑自动化的一条流程，给每一步标 R、W、E、I——Read 只读、Write 写入、External 对外、Irreversible 不可逆。然后把确认点放在影响扩大之前，而不是流程结束之后。</p>
+<p>快速收束句：Agent 的专业性不取决于它能做多少，而取决于它知道能做什么、何时停、由谁确认。</p>
+<h3 id="讲稿来源">讲稿来源</h3>
+<p>[11][12][19][20][32][36][39]，完整链接见 <code>research/sources.md</code>。</p></section>
+    <div class="lesson-actions"><button type="button" class="button secondary" data-action="complete">标记本课完成</button><nav aria-label="课间导航"><a class="button secondary" href="04.html">上一课</a><a class="button primary" href="06.html">下一课</a></nav></div>
+  </main>
+  <aside class="lesson-timeline"><h2>教学时间线</h2><ol class="timeline"><li><time>0:00</time><span>文字里说“已完成”，不代表系统里真的发生</span></li><li><time>2:30</time><span>四个层次：模型、工具、工作流、Agent</span></li><li><time>6:00</time><span>动作风险不是一个“是否敏感”的开关</span></li><li><time>10:00</time><span>最小控制面：把“请谨慎”变成系统规则</span></li><li><time>14:00</time><span>完整示范：服务问题分析停在发送之前</span></li><li><time>17:30</time><span>练习：为四个场景选择架构和确认点</span></li><li><time>22:00</time><span>收束：专业不是放大自主性，而是匹配自主性</span></li></ol></aside>
+</div><footer class="site-footer">
+  <strong>AI 工作新方法</strong>
+  <p>内部教学候选材料。全部案例为教学模拟；使用前需按当前联想内部工具、数据、品牌与审批要求复核。</p>
+  <p>LENOVO is a trademark of Lenovo. All other trademarks are the property of their respective owners. © 2026</p>
+</footer>
+  <script src="../assets/app.js" defer></script>
+</body>
+</html>

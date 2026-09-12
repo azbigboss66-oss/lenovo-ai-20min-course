@@ -8,6 +8,8 @@ import re
 import sys
 from pathlib import Path
 
+from check_curriculum import run_checks as run_curriculum_checks
+
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -18,11 +20,10 @@ def sha256_text(text: str) -> str:
 
 REQUIRED_FILES = [
     "README.md",
-    "course/00-course-outline.md",
-    "course/01-speaker-script.md",
-    "course/02-slide-outline.md",
-    "course/03-instructor-guide.md",
-    "course/04-quick-reference.md",
+    "curriculum/course-thesis.md",
+    "curriculum/program-map.md",
+    "curriculum/instructor-runbook.md",
+    "curriculum/glossary.md",
     "examples/prompt-before-after.md",
     "examples/lenovo-workplace-cases.md",
     "examples/meeting-to-action-skill/SKILL.md",
@@ -48,6 +49,16 @@ REQUIRED_FILES = [
     "research/sources.md",
     "quality/content-checklist.md",
     "quality/self-check-report.md",
+]
+
+FORBIDDEN_RETIRED_FILES = [
+    "course/00-course-outline.md",
+    "course/01-speaker-script.md",
+    "course/02-slide-outline.md",
+    "course/03-instructor-guide.md",
+    "course/04-quick-reference.md",
+    "docs/superpowers/plans/2026-09-09-lenovo-ai-20min-course.md",
+    "docs/superpowers/specs/2026-09-09-lenovo-ai-20min-course-design.md",
     "quality/timing-check.txt",
 ]
 
@@ -79,6 +90,33 @@ def run_checks() -> list[str]:
         if not (ROOT / relative).is_file():
             errors.append(f"缺少文件：{relative}")
 
+    for relative in FORBIDDEN_RETIRED_FILES:
+        if (ROOT / relative).exists():
+            errors.append(f"已退役的原单课材料仍然存在：{relative}")
+
+    v2_evidence_files = [
+        "course-data.json",
+        "curriculum/program-map.md",
+        "curriculum/instructor-runbook.md",
+        "curriculum/glossary.md",
+        "site/assets/brand/README.md",
+        "quality/site-qa.md",
+        "quality/fidelity-ledger.md",
+        "quality/screenshots/home-desktop.png",
+        "quality/screenshots/home-mobile.png",
+        "quality/screenshots/home-positions-mobile.png",
+        "quality/screenshots/lesson-04-desktop.png",
+        "quality/screenshots/lesson-04-mobile.png",
+        "docs/design/course-home-concept.png",
+        "docs/design/lesson-page-concept.png",
+    ]
+    for relative in v2_evidence_files:
+        path = ROOT / relative
+        if not path.is_file():
+            errors.append(f"缺少 V2 证据文件：{relative}")
+        elif path.suffix.lower() == ".png" and not path.read_bytes().startswith(b"\x89PNG\r\n\x1a\n"):
+            errors.append(f"视觉证据不是有效 PNG 文件：{relative}")
+
     files = markdown_files()
     combined = "\n".join(path.read_text(encoding="utf-8") for path in files)
 
@@ -98,15 +136,6 @@ def run_checks() -> list[str]:
         for field in ["任务目标", "必要上下文", "约束条件", "输出形式", "验收与停止条件"]:
             if f"# {field}" not in prompt_text:
                 errors.append(f"完整 Prompt 缺少字段：{field}")
-
-    slide_path = ROOT / "course/02-slide-outline.md"
-    if slide_path.is_file():
-        slide_text = slide_path.read_text(encoding="utf-8")
-        slide_count = len(re.findall(r"^## 第 \d+ 页", slide_text, re.MULTILINE))
-        if slide_count != 11:
-            errors.append(f"PPT 页纲应为 11 页内容页，实际为 {slide_count} 页")
-        if "## 附录 A｜课后保留" not in slide_text:
-            errors.append("PPT 页纲缺少课后来源附录")
 
     skill_root = ROOT / "examples/meeting-to-action-skill"
     case_manifest = skill_root / "evals/cases.json"
@@ -184,6 +213,8 @@ def run_checks() -> list[str]:
             errors.append(f"Markdown 缺少顶层标题：{path.relative_to(ROOT)}")
         errors.extend(check_local_links(path, text))
 
+    errors.extend(run_curriculum_checks())
+
     return errors
 
 
@@ -194,8 +225,8 @@ def main() -> int:
         for error in errors:
             print(f"- {error}")
         return 1
-    print(f"PASS: {len(REQUIRED_FILES)} 个必需文件齐全")
-    print("PASS: 教学模拟标记、Prompt 五字段、11 页内容页与来源附录、来源数量和本地链接满足合同")
+    print(f"PASS: 七课唯一教材的 {len(REQUIRED_FILES)} 个仓库支持文件齐全，原单课材料无残留")
+    print("PASS: 教学模拟标记、Prompt 五字段、来源数量和本地链接满足合同")
     print("PASS: 4 个配对案例与 8 个本地对照追踪文件满足证据结构和哈希一致性")
     print("PASS: 未发现内部引用标记或未完成占位符")
     print("LIMIT: 本检查不证明事实准确、教学效果、真实时长或联想内部合规性")

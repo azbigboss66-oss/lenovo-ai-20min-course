@@ -1,0 +1,86 @@
+{
+  "programTitle": "AI 工作新方法",
+  "programSubtitle": "从会使用，到会设计、会验证",
+  "programThesis": "AI 能力的分水岭，不是会不会对话，而是能否把判断、证据、边界和改进设计进工作系统。",
+  "positions": [
+    "先判断工作，再认识模型",
+    "Prompt 是最小工作合同",
+    "企业真正稀缺的是求证",
+    "每增加一分自主，都要增加一分控制",
+    "没有失败证据，不讨论模型升级"
+  ],
+  "audience": "工作经验丰富、刚接触生成式 AI 的联想同事",
+  "scope": "全部案例为教学模拟，不代表联想真实项目、制度或已部署能力。",
+  "lessons": [
+    {
+      "id": "01",
+      "slug": "ai-foundations",
+      "title": "AI 从零开始：先判断，再使用",
+      "shortTitle": "AI 从零开始",
+      "duration": 20,
+      "pauseMinutes": 5.0,
+      "summary": "建立输入—推断—输出—影响的工作判断，理解流畅不等于真实。",
+      "deliverable": "AI 适用性判断卡"
+    },
+    {
+      "id": "02",
+      "slug": "prompt-contract",
+      "title": "Prompt：把要求写成工作合同",
+      "shortTitle": "Prompt 工作合同",
+      "duration": 25,
+      "pauseMinutes": 6.0,
+      "summary": "用目标、上下文、约束、输出、验收与停止写出可执行委托。",
+      "deliverable": "五字段 Prompt 合同"
+    },
+    {
+      "id": "03",
+      "slug": "evidence-rag",
+      "title": "证据、数据与 RAG：让答案回到来源",
+      "shortTitle": "证据、数据与 RAG",
+      "duration": 25,
+      "pauseMinutes": 6.0,
+      "summary": "区分参数、上下文与受控知识源，用主张—证据表管理答案。",
+      "deliverable": "答案证据表"
+    },
+    {
+      "id": "04",
+      "slug": "skill-system",
+      "title": "Skill：把一次好结果变成工作能力",
+      "shortTitle": "Skill 工作能力",
+      "duration": 27,
+      "pauseMinutes": 7.0,
+      "summary": "用触发、资源、步骤、停止、评测把一次经验沉淀为过程资产。",
+      "deliverable": "Skill 候选包"
+    },
+    {
+      "id": "05",
+      "slug": "tools-workflows-agents",
+      "title": "工具、工作流与 Agent：自主性必须有边界",
+      "shortTitle": "工具、工作流与 Agent",
+      "duration": 25,
+      "pauseMinutes": 6.0,
+      "summary": "按动作风险配置最小权限、人工确认、Trace 与停止条件。",
+      "deliverable": "权限与人工审批图"
+    },
+    {
+      "id": "06",
+      "slug": "evaluation-model-strategy",
+      "title": "评测与模型升级路线：先证据，后技术",
+      "shortTitle": "评测与模型升级",
+      "duration": 28,
+      "pauseMinutes": 7.0,
+      "summary": "用任务集、基线和评分选择 Prompt、RAG、Agent、微调或预训练。",
+      "deliverable": "技术选择矩阵"
+    },
+    {
+      "id": "07",
+      "slug": "capstone",
+      "title": "联想场景综合实战：把 AI 做成组织能力",
+      "shortTitle": "联想场景综合实战",
+      "duration": 30,
+      "pauseMinutes": 9.0,
+      "summary": "以可交、可证、可责、可追审计工作流并设计 30 天试点。",
+      "deliverable": "经审计工作流与 30 天行动计划"
+    }
+  ]
+}

@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="联想场景特化的 AI 工作方法系列课，全部案例为教学模拟。">
+  <title>Skill：把一次好结果变成工作能力｜AI 工作新方法</title>
+  <link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到正文</a>
+  <header class="topbar">
+  <a class="course-brand" href="../index.html">AI 工作新方法</a>
+  <nav aria-label="全局导航">
+    <a href="../index.html#positions">课程立场</a>
+    <a href="../index.html#course-map">课程总览</a>
+    <a href="../index.html#instructor">讲师指南</a>
+  </nav>
+  <img class="lenovo-logo" src="../assets/brand/lenovo-logo-red-horizontal.webp" width="120" height="40" alt="Lenovo">
+</header>
+<div class="lesson-shell" data-lesson="04">
+  <aside class="lesson-rail" aria-label="课程目录"><div class="rail-title">联想内部 AI 课程<small>从认知到实践</small></div><nav><a href="../lessons/01.html"><span>01</span>AI 从零开始</a><a href="../lessons/02.html"><span>02</span>Prompt 工作合同</a><a href="../lessons/03.html"><span>03</span>证据、数据与 RAG</a><a href="../lessons/04.html" aria-current="page" class="active"><span>04</span>Skill 工作能力</a><a href="../lessons/05.html"><span>05</span>工具、工作流与 Agent</a><a href="../lessons/06.html"><span>06</span>评测与模型升级</a><a href="../lessons/07.html"><span>07</span>联想场景综合实战</a></nav><div class="progress-block"><span>学习进度</span><progress value="4" max="7">4/7</progress><small>4 / 7</small></div></aside>
+  <main id="main" class="lesson-main">
+    <div class="lesson-toolbar"><span>27 分钟 · 含练习</span><div><button type="button" class="toolbar-button" data-action="copy-page">复制本课提纲</button><button type="button" class="toolbar-button" data-action="toggle-instructor" aria-pressed="false">讲师模式</button></div></div>
+    <article class="lesson-content" id="lesson-outline"><h1 id="第-04-课-Skill-把一次好结果变成工作能力">第 04 课｜Skill：把一次好结果变成工作能力</h1>
+<blockquote>计划 27 分钟｜教学模拟｜主要产出：一个 Skill 候选包</blockquote>
+<h2 id="下课时你能做到">下课时你能做到</h2>
+<ol>
+<li>区分 Prompt、固定工作流和 Skill。</li>
+<li>用“触发—资源—步骤—停止—评测”检查 Skill 是否完整。</li>
+<li>解释为什么 <code>SKILL.md</code> 不等于已经部署的能力。</li>
+<li>为一个重复任务写出最小 Skill 设计卡。</li>
+</ol>
+<h2 id="Skill-五部件">Skill 五部件</h2>
+<p>触发（何时使用） → 资源（需要什么） → 步骤（怎样做） → 停止（何时不做） → 评测（怎样证明）</p>
+<h2 id="成熟度阶梯">成熟度阶梯</h2>
+<p>长 Prompt → 有说明的文件包 → 可运行候选 → 代表性评测通过 → 受控试点 → 获批生产能力</p>
+<h2 id="课堂证据边界">课堂证据边界</h2>
+<p>会议行动项 Skill 在四个虚构案例上保存了同一模型的基线 1/4 与 Skill 4/4 快照。它是课堂候选，不是生产准确率、上线批准或真实业务收益证明。</p>
+<h2 id="来源">来源</h2>
+<p>[7][8][9][10][30][32]</p></article>
+    <section class="exercise-panel"><div class="section-label">动手练习</div><h2 id="第-04-课练习-Skill-五部件设计卡">第 04 课练习｜Skill 五部件设计卡</h2>
+<blockquote>教学模拟｜建议 4 分钟</blockquote>
+<h3 id="任务">任务</h3>
+<p>把“每周跨部门会议记录整理为行动项草稿”设计为一个候选 Skill。</p>
+<pre><code>触发：什么请求应该使用？什么请求不应使用？
+
+资源：最少需要哪些输入、合同、参考资料或工具？
+
+步骤：按什么顺序提取、核验、组织和输出？
+
+停止：出现哪些缺失、冲突或未授权动作时必须停？
+
+评测：用哪三个案例比较没有 Skill 和使用 Skill 的结果？</code></pre>
+<h3 id="自检">自检</h3>
+<ul>
+<li>是否写了至少一个“不触发”场景？</li>
+<li>是否写了输入缺失和未授权动作两个停止条件？</li>
+<li>是否定义输出合同，而不是只写“整理得专业”？</li>
+<li>是否有正常、缺失/冲突、权限边界三类测试？</li>
+</ul><details><summary>显示参考答案</summary><div class="answer-content"><h2 id="第-04-课参考答案-会议行动项-Skill-设计卡">第 04 课参考答案｜会议行动项 Skill 设计卡</h2>
+<blockquote>教学模拟。完整可运行候选见 <code>examples/meeting-to-action-skill/</code>。</blockquote>
+<h3 id="触发">触发</h3>
+<p>当用户提供会议记录，并要求提取或整理行动项草稿时使用。若任务要求替用户决定优先级、访问未提供的系统、发送通知或修改任务状态，则不直接使用。</p>
+<h3 id="资源">资源</h3>
+<ul>
+<li>会议记录原文；</li>
+<li><code>references/output-contract.md</code>；</li>
+<li>术语或状态枚举；</li>
+<li>行动项结构检查脚本；</li>
+<li>三类以上配对评测案例。</li>
+</ul>
+<h3 id="步骤">步骤</h3>
+<ol>
+<li>检查输入是否存在且属于会议材料。</li>
+<li>只提取明确行动表达及原文证据。</li>
+<li>填写事项、负责人、截止日期、状态、证据；缺失写待确认。</li>
+<li>并列展示冲突，不自行选择。</li>
+<li>运行结构检查，输出草稿和待确认清单。</li>
+</ol>
+<h3 id="停止">停止</h3>
+<ul>
+<li>没有输入；</li>
+<li>请求执行发送、写系统或改变权限；</li>
+<li>来源冲突且没有明确优先规则；</li>
+<li>任务要求根据职位或常识补写负责人、日期或决定。</li>
+</ul>
+<h3 id="评测">评测</h3>
+<p>正常输入、字段缺失、事实冲突、未授权发送四类案例；同一模型比较无 Skill 基线与候选 Skill，使用固定断言加人工审阅，并记录版本、时间和 Trace。</p>
+<h3 id="评分标准">评分标准</h3>
+<p>五部件每项 2 分，共 10 分。8 分达标；缺少停止或评测时最高 6 分。</p></div></details></section>
+    <section class="speaker-panel" aria-label="详细讲稿"><div class="section-label">讲师专用</div><h2 id="第-04-课详细讲稿-Skill-把一次好结果变成工作能力">第 04 课详细讲稿｜Skill：把一次好结果变成工作能力</h2>
+<blockquote>建议 27 分钟；其中仓库演示、练习和讲评约 7 分钟。</blockquote>
+<h3 id="0-00-2-30-收藏了一个好-Prompt-为什么换个人又做不好">0:00–2:30｜收藏了一个好 Prompt，为什么换个人又做不好</h3>
+<p>很多团队的 AI 使用停在一个阶段：某位同事调出一条很好用的 Prompt，发到群里，大家收藏。两周后有人找不到模板，有人删掉关键约束，有人换了输入格式，结果再次漂移。问题不是 Prompt 没价值，而是一次委托还没有变成过程资产。</p>
+<p>我的判断是：可复用的不是那段看起来聪明的文字，而是一套遇到缺失、冲突和未授权动作时仍知道怎样停下来的过程。没有停止和评测的 Skill，只是包装得更完整的愿望。</p>
+<p>今天我们讲 Skill。课程中的定义是：可版本化、可复用的任务过程包。它把何时触发、需要的资料、执行步骤、确定性工具、异常停止、输出合同和评测放在一起。</p>
+<p>这里先划清边界。一个目录里写了 <code>SKILL.md</code>，不代表系统已经会自动选择它、拥有业务权限、可以调用所有工具或已经通过生产验收。真正的业务能力还需要运行环境、选择机制、权限控制、版本记录、Trace、监控和人工责任。</p>
+<h3 id="2-30-6-00-Prompt-工作流-Skill-各解决什么">2:30–6:00｜Prompt、工作流、Skill 各解决什么</h3>
+<p>Prompt 是本次请求的任务合同。它最接近一次工作委托，适合临时或变化较大的任务。</p>
+<p>固定工作流把步骤和分支写进代码或流程配置，执行路径可预测，适合稳定、规则清楚的操作。</p>
+<p>Skill 位于两者之间又连接两者。它不必把所有逻辑写成代码，但会把领域说明、模板、参考资料和可重复脚本组织成一个包，让模型或执行环境在合适任务中加载。</p>
+<p>例如“把会议记录转成行动项”：Prompt 可以描述本次输出；Skill 还要定义输入最小条件、字段合同、缺失值规则、冲突处理、检查脚本和评测案例；如果最后还要自动写入任务系统，则要另接受控工具或工作流。不要把这三层混成一个词。</p>
+<p>开放 Agent Skills 规范中，一个 Skill 以目录为单元，入口是 <code>SKILL.md</code>，可以包含脚本、参考资料和资产。渐进式披露的意义是：系统先根据名称与描述判断是否相关，触发后才读取说明，需要时再加载资源。这既节约上下文，也要求描述足够精确，不能写成“处理所有办公任务”。</p>
+<h3 id="6-00-11-00-五部件-触发-资源-步骤-停止-评测">6:00–11:00｜五部件：触发、资源、步骤、停止、评测</h3>
+<p>第一是触发。回答“什么请求应该用、什么请求不应该用”。会议行动项 Skill 适用于从已提供的会议记录提取行动项；不适用于替用户决定优先级、根据记忆补负责人、自动发送通知。</p>
+<p>第二是资源。包括输入材料、术语、输出合同、参考样例和可调用工具。资源必须说明来源与版本；能读取并不等于获准使用。</p>
+<p>第三是步骤。只写真正改变结果的顺序。例如先提取原文事实，再识别行动表达，再填负责人和截止日期，再检查冲突，最后输出。可由脚本稳定完成的格式、日期或必填检查，不要全部依赖模型自由生成。</p>
+<p>第四是停止。输入为空、负责人缺失、日期冲突、要求执行未授权动作时怎么办？成熟 Skill 会明确：保持未知、列出问题、在模型前停止，或转人工。停止规则把安全从提醒变成行为。</p>
+<p>第五是评测。至少需要一组正常案例和边界案例、有/无 Skill 或旧/新版对照、评分规则、版本与 Trace。没有评测，我们只有“作者觉得这份说明不错”。</p>
+<p>把五部件连起来，就是今天的核心判断：Skill 不是一段更长的话，而是一套能被发现、执行、停止和比较的工作方法。</p>
+<h3 id="11-00-16-00-仓库演示-一个课堂候选怎样留下证据">11:00–16:00｜仓库演示：一个课堂候选怎样留下证据</h3>
+<p>现在看仓库中的 <code>examples/meeting-to-action-skill/</code>。入口 <code>SKILL.md</code> 说明触发、输入和流程；<code>references/output-contract.md</code> 定义输出字段；<code>examples/</code> 有四组输入和人工参考答案；<code>scripts/</code> 有机械检查和评测；<code>evals/runs/</code> 保存了本地模型输出与 Trace。</p>
+<p>四个案例分别测试：正常输入、负责人或日期缺失、事实冲突、请求执行未授权动作。最后一个案例要求“把结果直接发出”，Skill 必须在调用模型前停止，因为它没有发送授权。</p>
+<p>保存的课堂快照使用同一本地模型和四个虚构案例：模糊基线通过 1/4，加载 Skill 后通过 4/4。这个数字可以证明什么？它证明在这四个已知案例、这个版本和这次保存运行中，Skill 输出满足当前评分合同。</p>
+<p>它不能证明什么？不能证明真实联想会议都能处理，不能证明上线准确率，不能证明其他模型同样表现，也不能证明获得系统权限。样本只有四个，而且部分检查是确定性的。课堂用它展示评测方法，而不是营销准确率。</p>
+<p>Trace 里保存输入文件、输出哈希、Skill 哈希、合同哈希、模式和是否在模型前停止。这样后来修改 <code>SKILL.md</code> 后，旧结果不会被偷偷当成新版本证据。可追踪性不是堆日志，而是能回答“哪一版、用什么输入、做了什么、为什么停、输出是否被改过”。</p>
+<h3 id="16-00-20-30-怎样从真实任务提炼-Skill">16:00–20:30｜怎样从真实任务提炼 Skill</h3>
+<p>第一步，选择稳定、重复、可验收的任务。高频不等于适合；如果每次目标完全不同、责任高度依赖专家判断，先做 Prompt 模板或辅助分析。</p>
+<p>第二步，收集少量真实感但合规的成功与失败样例。先写人工认可的参考输出，尤其保留缺失、冲突和未授权请求。</p>
+<p>第三步，提炼五部件。把通用规则放在 <code>SKILL.md</code>，大量领域资料放到 references，可机械检查的部分放脚本，不要把所有内容复制到一个巨大文件。</p>
+<p>第四步，做基线和候选对照。冻结测试案例，先看没有 Skill 时如何，再加载候选。评分既可以有确定性断言，也要有人检查内容是否真正有用。</p>
+<p>第五步，版本化并记录限制。通过小样本只是候选；要进入受控试点，还需更有代表性的任务、权限、监控和责任人。</p>
+<h3 id="20-30-24-30-练习-五分钟-Skill-设计卡">20:30–24:30｜练习：五分钟 Skill 设计卡</h3>
+<p>请选一个模拟任务：“把每周跨部门会议记录整理成行动项草稿”。四分钟内填写五栏：触发、资源、步骤、停止、评测。至少写一个不触发场景和两个停止条件。</p>
+<p>（两分钟个人写；一分钟同桌检查是否把输出格式误写成完整 Skill；最后一分钟请一位同事说出评测案例。）</p>
+<p>讲评时注意：如果只写“使用专业语言、认真分析、输出表格”，这仍然只是 Prompt。加入输入要求、参考合同、检查脚本、冲突规则、未授权停止和测试案例，才开始形成 Skill。</p>
+<p>一个好的不触发例子是“用户要求自动给客户发邮件”；一个好的停止条件是“负责人缺失时填待确认，不根据职位猜测”；一个好的评测案例是“同一句会议记录里出现两个不同截止日期，输出必须并列冲突并请求确认”。</p>
+<h3 id="24-30-27-00-收束-复用能力来自合同与证据">24:30–27:00｜收束：复用能力来自合同与证据</h3>
+<p>请记住成熟度阶梯：长 Prompt、有说明的文件包、可运行候选、代表性评测通过、受控试点、获批生产。团队沟通时说清自己在哪一级，比笼统说“我们已经有 Skill”更专业。</p>
+<p>下一课会把 Skill 放进更大的执行环境：什么时候只调用一个只读工具，什么时候用固定工作流，什么时候才需要 Agent，以及哪些动作必须人工确认。</p>
+<p>今天带回岗位的动作：把你收藏夹里最好用的一条 Prompt 拿出来，用五部件审计。如果缺停止和评测，先补这两项；它们通常最能暴露真实风险。</p>
+<p>快速收束句：Prompt 让一次委托更清楚；Skill 让一种工作方法可发现、可执行、可停止、可比较。</p>
+<h3 id="讲稿来源">讲稿来源</h3>
+<p>[7][8][9][10][30][32]，完整链接见 <code>research/sources.md</code>。</p></section>
+    <div class="lesson-actions"><button type="button" class="button secondary" data-action="complete">标记本课完成</button><nav aria-label="课间导航"><a class="button secondary" href="03.html">上一课</a><a class="button primary" href="05.html">下一课</a></nav></div>
+  </main>
+  <aside class="lesson-timeline"><h2>教学时间线</h2><ol class="timeline"><li><time>0:00</time><span>收藏了一个好 Prompt，为什么换个人又做不好</span></li><li><time>2:30</time><span>Prompt、工作流、Skill 各解决什么</span></li><li><time>6:00</time><span>五部件：触发、资源、步骤、停止、评测</span></li><li><time>11:00</time><span>仓库演示：一个课堂候选怎样留下证据</span></li><li><time>16:00</time><span>怎样从真实任务提炼 Skill</span></li><li><time>20:30</time><span>练习：五分钟 Skill 设计卡</span></li><li><time>24:30</time><span>收束：复用能力来自合同与证据</span></li></ol></aside>
+</div><footer class="site-footer">
+  <strong>AI 工作新方法</strong>
+  <p>内部教学候选材料。全部案例为教学模拟；使用前需按当前联想内部工具、数据、品牌与审批要求复核。</p>
+  <p>LENOVO is a trademark of Lenovo. All other trademarks are the property of their respective owners. © 2026</p>
+</footer>
+  <script src="../assets/app.js" defer></script>
+</body>
+</html>

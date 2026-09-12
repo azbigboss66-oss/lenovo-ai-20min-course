@@ -1,6 +1,6 @@
 # 来源台账
 
-访问日期统一为 2026-09-09。产品与厂商文档可能更新；正式授课前应重新核对其中的产品特定内容。
+编号 1–27 访问日期为 2026-09-09，编号 28–42 访问日期为 2026-09-12。产品、课程和厂商文档可能更新；正式授课前应重新核对其中的产品特定内容。
 
 | 编号 | 来源 | 日期 | 课程用途与边界 |
 |---|---|---|---|
@@ -31,10 +31,25 @@
 | 25 | Chi & Wylie, [The ICAP Framework: Linking Cognitive Engagement to Active Learning Outcomes](https://doi.org/10.1080/00461520.2014.965823) | 2014 | 支持从被动到主动、建构和互动的参与层级。 |
 | 26 | Schwonke et al., [The worked-example effect: Not an artefact of lousy control conditions](https://doi.org/10.1016/j.chb.2008.12.011) | 2009 | 支持初学阶段使用完整示例；研究情境与企业 AI 培训不同，因此仅作为设计依据。 |
 | 27 | Penn State Leonhard Center, [Assertion-Evidence Presentations](https://www.assertion-evidence.org/) | 持续更新 | 支持结论式标题与视觉证据，而不是短语标题加项目符号。 |
+| 28 | Google, [Google AI Essentials](https://grow.google/ai-essentials/) | 持续更新 | 对标零基础、工作场景、Prompt、负责任使用和动手练习；课程时长与平台认证不直接照搬。 |
+| 29 | Microsoft, [Generative AI for Beginners](https://github.com/microsoft/generative-ai-for-beginners) | 持续更新 | 对标“学习/构建/延伸”课节结构及 Prompt、搜索、RAG、函数调用、Agent、微调、小模型的能力链。 |
+| 30 | OpenAI Academy, [Courses](https://academy.openai.com/pages/courses) 与 [AI Foundations](https://academy.openai.com/public/courses/ai-foundations-juzjs?autoEnroll=true) | 2026 页面 | 对标 Foundations → Applied Foundations → Agents and Workflows 的渐进路径；产品界面可能变化。 |
+| 31 | OpenAI Academy, [Prompting](https://academy.openai.com/en/public/clubs/work-users-ynjqu/resources/prompting) | 2026 页面 | 支持清晰指令、上下文、迭代和审阅的基础练习；不作为唯一 Prompt 公式。 |
+| 32 | OpenAI Academy, [AI at Work](https://academy.openai.com/pages/ai-at-work-bcx7td) | 2026 页面 | 支持把重复任务转为带复核点的工作流，并进入 Agent 与工作流设计。 |
+| 33 | OpenAI Academy, [Champion Deployment Guide](https://academy.openai.com/en/public/clubs/champions-ecqup/resources/openai-academy-courses-champion-deployment-guide-2026-06-11) | 2026-06-11 | 支持共同基础、岗位差异化、应用案例、强化与测量；不证明本课程已在联想部署。 |
+| 34 | IBM SkillsBuild, [Adult learners course sampler](https://skillsbuild.org/adult-learners/try-it-before-you-register) | 持续更新 | 对标成人短模块中的 AI 基础、生成式 AI、伦理和批判性思维。 |
+| 35 | University of Helsinki, [Building AI learning objectives](https://buildingai.elementsofai.com/buildingai_objectives.pdf) | 公开课程资料 | 支持多难度入口、区分 AI 方法并为问题选择合适方案。 |
+| 36 | OECD.AI, [A socio-technical approach to AI literacy](https://oecd.ai/en/wonk/socio-technical-approach-ai-literacy) | 持续更新 | 支持理解、批判性评估、负责任使用和人在回路四维 AI 素养。 |
+| 37 | European Commission, [AI literacy – Questions & Answers](https://digital-strategy.ec.europa.eu/en/faqs/ai-literacy-questions-answers) | 2026 页面 | 支持按人员经验、角色、应用情境和风险设计培训；仅作国际治理参考，不作法律合规结论。 |
+| 38 | Microsoft Learn, [Discover Microsoft AI for leaders](https://learn.microsoft.com/en-us/training/paths/discover-microsoft-ai-leaders-financial-industry/) | 持续更新 | 对标“基础工具—业务价值—负责任 AI—组织扩展”结构；行业案例不直接套用联想。 |
+| 39 | NIST, [AI Resource Center](https://airc.nist.gov/) 与 [AI Risk Management Framework](https://www.nist.gov/itl/ai-risk-management-framework) | 持续更新 | 支持 Govern、Map、Measure、Manage 与 TEVV 风险管理语言；自愿框架不等于认证。 |
+| 40 | Lenovo Brand World, [Lenovo logo](https://brandworld.lenovo.com/visual-identity/logo/) | 2026 页面 | 支持 Logo 3:1 结构、signature red、留白、数字最小宽度、静态定位和不得重绘；官方资产仍受内部使用规范约束。 |
+| 41 | Lenovo Brand World, [Iconography](https://brandworld.lenovo.com/visual-identity/iconography/) | 2026 页面 | 支持优先使用官方图标库和一致、清晰、模块化原则；本项目不把生成图标称为官方图标。 |
+| 42 | Lenovo, [Copyright and Trademark Information](https://www.lenovo.com/us/en/legal/copytrade/) | 2026 页面 | 支持 Lenovo Logo 的商标归属与使用限制；本教材保留归属说明且不授权第三方使用。 |
 
 ## 引用规则
 
 - 讲稿正文只引用会影响理解或风险判断的来源，避免口头报告被编号淹没。
-- PPT 页纲在每页“来源”字段中写编号，最终制作为 PPTX 时应在备注页保留完整链接。
+- HTML 与讲稿在每课“来源”区写编号，完整链接统一保留在本台账。
 - 联想来源只证明公开表述，不证明当前内部工具、流程、权限或审批状态。
 - 所有模拟案例均由课程设计生成，不是生产数据，也不需要伪造出处。

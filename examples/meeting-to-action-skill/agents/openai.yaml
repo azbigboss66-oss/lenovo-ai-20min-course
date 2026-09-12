@@ -1,0 +1,6 @@
+interface:
+  display_name: "会议行动项教学 Skill"
+  short_description: "从获准会议记录提取有证据的行动项草稿"
+  default_prompt: "Use $meeting-to-action-skill to turn these approved teaching notes into traceable action items."
+policy:
+  allow_implicit_invocation: true
