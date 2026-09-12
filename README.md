@@ -7,7 +7,7 @@
 ## 最快使用方式
 
 1. 打开 [`site/index.html`](site/index.html)，进入可离线使用的 HTML 教材；
-2. 讲师先读 [`curriculum/program-map.md`](curriculum/program-map.md) 和 [`curriculum/instructor-runbook.md`](curriculum/instructor-runbook.md)；
+2. 讲师先读 [`curriculum/course-thesis.md`](curriculum/course-thesis.md)、[`curriculum/program-map.md`](curriculum/program-map.md) 和 [`curriculum/instructor-runbook.md`](curriculum/instructor-runbook.md)；
 3. 每课目录中的 `outline.md` 用于屏幕内容，`speaker-script.md` 是逐分钟讲稿，`exercise.md` 与 `reference-answer.md` 配套使用；
 4. HTML 课页点击“讲师模式”可显示完整讲稿，参考答案默认折叠。
 
@@ -23,7 +23,19 @@
 | 06 | 评测与模型升级路线 | 28 分钟 | 冻结案例对照评测 | 技术选择矩阵 |
 | 07 | 联想场景综合实战 | 30 分钟 | 从会议输入到受控试点 | 经审计工作流与 30 天行动 |
 
-计划课时合计约 180 分钟，适合按周或集中学习。自动估时按讲稿正文、固定停顿和练习预算计算，七课参考值为 15.0–17.5 分钟，是核心讲授的最低可讲范围；计划课时还预留现场演示、学员汇报和扩展讨论。两者都不能替代讲师真实彩排。
+计划课时合计约 180 分钟，适合按周或集中学习。自动估时按讲稿正文、固定停顿和练习预算计算，七课参考值为 15.4–17.9 分钟，是核心讲授的最低可讲范围；计划课时还预留现场演示、学员汇报和扩展讨论。两者都不能替代讲师真实彩排。
+
+## 课程自己的判断
+
+这不是一份外部课程内容的拼接，也不是 AI 工具功能清单。课程用公开一手资料校准事实，但在教学上坚持五个可讨论、可反驳的判断：
+
+1. 先判断工作，再认识模型；
+2. Prompt 是最小工作合同；
+3. 企业真正稀缺的是求证；
+4. 每增加一分自主，都要增加一分控制；
+5. 没有失败证据，不讨论模型升级。
+
+完整论证、台上表达和讲师个人化方法见 [`curriculum/course-thesis.md`](curriculum/course-thesis.md)。详细讲稿提供的是论证支架；讲师应保留逻辑与证据，用自己自然的语言完成最终表达。
 
 ## 内容与案例怎样配套
 
@@ -85,20 +97,15 @@ python -X utf8 examples/meeting-to-action-skill/scripts/evaluate_cases.py --cand
 ## 仓库结构
 
 ```text
-curriculum/  课程地图、讲师运行手册与术语表
+curriculum/  课程立场、课程地图、讲师运行手册与术语表
 lessons/     七课提纲、详细讲稿、练习和参考答案
 site/        可离线打开的总览页、七个课页与本地品牌资产
 examples/    Prompt 案例、联想场景库和可复现 Skill 候选
 research/    对标研究综述与 42 项来源台账
 quality/     时长、内容、浏览器、视觉和最终自检证据
 scripts/     HTML 构建、课程检查、仓库检查与截图脚本
-course/      保留的旧版 20 分钟先导课材料
 docs/        V2 设计规格、执行计划与视觉概念图
 ```
-
-## 与旧版 20 分钟课程的关系
-
-原 20 分钟单课保留在 [`course/`](course/) 中，适合作为高层概览或七课前的先导分享；它不是本次七课主教材。旧版对应的计时与检查证据也保留，避免把历史结果误当成新版七课证据。
 
 ## 当前完成等级
 

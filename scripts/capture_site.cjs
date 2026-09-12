@@ -25,6 +25,7 @@ async function capture(browser, name, relativeUrl, viewport) {
   results.push(await capture(browser, 'home-desktop', '/index.html', { width: 1440, height: 1000 }));
   results.push(await capture(browser, 'lesson-04-desktop', '/lessons/04.html', { width: 1440, height: 1000 }));
   results.push(await capture(browser, 'home-mobile', '/index.html', { width: 390, height: 844 }));
+  results.push(await capture(browser, 'home-positions-mobile', '/index.html#positions', { width: 390, height: 844 }));
   results.push(await capture(browser, 'lesson-04-mobile', '/lessons/04.html', { width: 390, height: 844 }));
   await browser.close();
   console.log(JSON.stringify(results, null, 2));

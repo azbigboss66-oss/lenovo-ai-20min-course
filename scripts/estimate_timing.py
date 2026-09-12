@@ -10,7 +10,6 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA_PATH = ROOT / "course-data.json"
-DEFAULT_SCRIPT = ROOT / "course/01-speaker-script.md"
 
 
 def spoken_text(markdown: str) -> str:
@@ -97,13 +96,13 @@ def run_all(output_dir: Path) -> int:
 
 def main() -> int:
     parser = argparse.ArgumentParser(description="估算中文课程讲稿时长")
-    parser.add_argument("--all", action="store_true", help="估算 course-data.json 中全部七课")
-    parser.add_argument("--script", type=Path, default=DEFAULT_SCRIPT)
+    parser.add_argument("--all", action="store_true", help="估算 course-data.json 中全部七课（默认行为）")
+    parser.add_argument("--script", type=Path, help="只估算指定讲稿；省略时检查全部七课")
     parser.add_argument("--pause-minutes", type=float, default=1.4)
     parser.add_argument("--output", type=Path)
     parser.add_argument("--output-dir", type=Path, default=ROOT / "quality/timing")
     args = parser.parse_args()
-    if args.all:
+    if args.all or args.script is None:
         return run_all(args.output_dir)
     script = args.script if args.script.is_absolute() else ROOT / args.script
     if not script.is_file():

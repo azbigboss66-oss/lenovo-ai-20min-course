@@ -178,8 +178,8 @@ def header(prefix: str) -> str:
     return f"""<header class="topbar">
   <a class="course-brand" href="{prefix}index.html">AI 工作新方法</a>
   <nav aria-label="全局导航">
+    <a href="{prefix}index.html#positions">课程立场</a>
     <a href="{prefix}index.html#course-map">课程总览</a>
-    <a href="{prefix}index.html#method">学习方法</a>
     <a href="{prefix}index.html#instructor">讲师指南</a>
   </nav>
   <img class="lenovo-logo" src="{prefix}assets/brand/lenovo-logo-red-horizontal.webp" width="120" height="40" alt="Lenovo">
@@ -203,13 +203,17 @@ def build_home() -> None:
   <span class="course-meta">{lesson['duration']} 分钟<br>{html.escape(lesson['deliverable'])}</span>
   <svg aria-hidden="true" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></svg>
 </a>""")
+    position_cards = "".join(
+        f"<article><b>{index:02d}</b><p>{html.escape(position)}</p></article>"
+        for index, position in enumerate(DATA["positions"], start=1)
+    )
     body = header("") + f"""
 <main id="main">
   <section class="hero">
     <div>
       <h1>{html.escape(DATA['programTitle'])}</h1>
       <p class="hero-subtitle">{html.escape(DATA['programSubtitle'])}</p>
-      <p class="hero-copy">面向有经验的联想同事，把 AI 从一次生成变成可交付、可验证的工作方法。</p>
+      <p class="hero-copy">{html.escape(DATA['programThesis'])}</p>
       <div class="hero-actions"><a class="button primary" href="lessons/01.html">开始第一课</a><a class="button secondary" href="#course-map">查看课程地图</a></div>
     </div>
     <div class="workflow" aria-label="AI 工作流程">
@@ -217,6 +221,7 @@ def build_home() -> None:
       <ol><li><b>01</b><span>定义问题<br>明确目标</span></li><li><b>02</b><span>获得信息<br>给出上下文</span></li><li><b>03</b><span>生成方案<br>受控执行</span></li><li><b>04</b><span>验证结果<br>持续改进</span></li><li><b>05</b><span>沉淀能力<br>创造价值</span></li></ol>
     </div>
   </section>
+  <section class="positions" id="positions"><div class="section-heading"><h2>五个讲师判断</h2><p>资料负责校准事实，取舍才体现专业。以下观点贯穿七课，也欢迎学员用工作反例挑战。</p></div><div class="position-grid">{position_cards}</div><p class="position-note">完整论证与台上表达见仓库 <code>curriculum/course-thesis.md</code>。详细讲稿是论证支架，不是必须逐字照念的台词。</p></section>
   <section class="course-map" id="course-map"><div class="section-heading"><h2>七课进阶：从会用到会设计</h2><p>总计划约 180 分钟，每课完成一个可观察产出。</p></div>{''.join(lesson_rows)}</section>
   <section class="method" id="method"><h2>不是听完，而是每节带走一份成果</h2><div class="method-flow"><span>问题切入</span><span>核心模型</span><span>对比示范</span><span>动手练习</span><span>评分迁移</span></div><p>{html.escape(DATA['scope'])}</p></section>
   <section class="principles"><h2>四个原则，让 AI 真正服务于工作</h2><div><article><strong>可交付</strong><p>结果能进入工作，而不是停在漂亮文字。</p></article><article><strong>可证明</strong><p>关键事实有来源，结论可核验。</p></article><article><strong>可追责</strong><p>授权、复核和业务责任明确。</p></article><article><strong>可追踪</strong><p>输入、版本、调用和修改可回溯。</p></article></div></section>

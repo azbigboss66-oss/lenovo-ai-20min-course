@@ -67,6 +67,23 @@ def run_checks() -> list[str]:
     if len(lessons) != 7:
         errors.append(f"课程必须为 7 节，实际为 {len(lessons)} 节")
 
+    program_thesis = data.get("programThesis")
+    positions = data.get("positions", [])
+    if not isinstance(program_thesis, str) or len(program_thesis.strip()) < 30:
+        errors.append("课程元数据缺少完整的讲师总论")
+    if not isinstance(positions, list) or len(positions) != 5 or len(set(positions)) != 5:
+        errors.append("课程必须包含 5 项互不重复的讲师判断")
+        positions = []
+
+    thesis_path = ROOT / "curriculum/course-thesis.md"
+    if not thesis_path.is_file():
+        errors.append("缺少课程立场文件：curriculum/course-thesis.md")
+    else:
+        thesis_text = thesis_path.read_text(encoding="utf-8")
+        for marker in ["判断一", "判断二", "判断三", "判断四", "判断五", "讲成自己的课"]:
+            if marker not in thesis_text:
+                errors.append(f"课程立场缺少段落：{marker}")
+
     ids = [lesson.get("id") for lesson in lessons]
     if ids != [f"{number:02d}" for number in range(1, 8)]:
         errors.append(f"课程编号应为 01–07，实际为 {ids}")
@@ -166,6 +183,12 @@ def run_checks() -> list[str]:
                 errors.append(f"HTML 本地链接断开：{page.relative_to(ROOT)} -> {target}")
         if page.name != "index.html" and (audit.buttons < 3 or audit.details < 1):
             errors.append(f"课程页缺少复制/讲师/进度或答案交互：{page.relative_to(ROOT)}")
+        if page.name == "index.html":
+            if isinstance(program_thesis, str) and program_thesis not in text:
+                errors.append("HTML 总览没有呈现讲师总论")
+            for position in positions:
+                if position not in text:
+                    errors.append(f"HTML 总览缺少讲师判断：{position}")
 
     sources = (ROOT / "research/sources.md").read_text(encoding="utf-8")
     source_ids = [
@@ -197,7 +220,7 @@ def main() -> int:
     print("PASS: 7 节课程及 28 份提纲/讲稿/练习/答案文件齐全")
     print("PASS: 七课计划与参考估时均位于 15–30 分钟")
     print("PASS: 8 个 HTML 页面、官方 Logo、本地链接和课程交互满足结构合同")
-    print("PASS: 教学模拟、来源、评分和核心术语边界齐全")
+    print("PASS: 讲师总论、五项判断、教学模拟、来源、评分和核心术语边界齐全")
     print("LIMIT: 自动检查不证明真人授课时长、教学效果、内部审批或生产能力")
     return 0
 

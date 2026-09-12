@@ -1,6 +1,6 @@
 # 联想 AI 工作方法系列课 V2 Implementation Plan
 
-**Goal:** 将已合并的 20 分钟 AI 入门课升级为七节、每节 15–30 分钟、带详细讲稿与离线 HTML 教材的联想场景化课程链，并以经验证的 Pull Request 更新 GitHub 仓库。
+**Goal:** 以七节、每节 15–30 分钟、带详细讲稿与离线 HTML 教材的联想场景化课程链替换原单课教材，并以经验证的 Pull Request 更新 GitHub 仓库。
 
 **Architecture:** 以 Markdown 课程源、共享案例和课程元数据为唯一内容源，由 Python 标准库生成静态多页 HTML；现有会议行动项 Skill 与评测证据作为第 4/6 课的受控教学资产，不复制或伪造生产能力。
 
@@ -31,9 +31,10 @@
 - Create: `curriculum/program-map.md`
 - Create: `curriculum/instructor-runbook.md`
 - Create: `curriculum/glossary.md`
+- Create: `curriculum/course-thesis.md`
 
 **Interfaces:**
-- Consumes: 公开一手来源、V2 设计规格、现有 20 分钟课。
+- Consumes: 公开一手来源、V2 设计规格与联想工作场景要求。
 - Produces: 七课共享的术语、引用编号、时间与授课合同。
 
 **Verification mode:** 人工审校 + 静态检查。
@@ -154,7 +155,8 @@
 
 **Files:**
 - Modify: `README.md`
-- Preserve: 旧 20 分钟课程材料，明确标记为先导/历史版本。
+- Delete: 原单课 `course/`、旧单课规格/计划与专属计时报告。
+- Create: `curriculum/course-thesis.md`，把公开依据与讲师自己的判断分开。
 
 **Interfaces:**
 - Consumes: 全部本地交付物和验证结果。
@@ -165,8 +167,10 @@
 **Why this mode:** 本地通过不能证明远端文件存在，PR 存在也不能证明已合并。
 
 - [x] 更新 README 的使用路径、课程表、构建命令、品牌来源和边界。
+- [x] 删除旧单课教材及其专属旧证据，让七课成为仓库唯一正式教材。
+- [x] 增加五项讲师判断，并把观点表达写入七课开场和 HTML 总览。
 - [x] 运行全部验证并检查 `git diff --check`、状态和提交范围。
-- [x] 提交并推送 `curriculum-v2` 远端分支。
+- [ ] 提交并推送 `curriculum-v2` 远端分支。
 - [ ] 创建 Pull Request。
 - [ ] 在 Edge 核对 PR 文件数量、关键路径和未丢失内容；把合并动作留给用户。
 
