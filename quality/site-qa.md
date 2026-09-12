@@ -1,7 +1,7 @@
 # HTML 教材浏览器验收
 
-验收日期：2026-09-12  
-对象：`site/index.html`、`site/lessons/01.html` 至 `07.html`  
+验收日期：2026-09-12
+对象：`site/index.html`、`site/lessons/01.html` 至 `07.html`
 本地服务：`python -m http.server 19381 --directory site`
 
 ## 结论
