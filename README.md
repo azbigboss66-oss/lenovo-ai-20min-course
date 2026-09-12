@@ -1,86 +1,105 @@
-# 联想职场 AI 入门：从一句话到一种能力
+# AI 工作新方法｜联想场景化七课课程链
 
-一套面向联想资深在职同事、但默认听众刚接触生成式 AI 的 20 分钟中文课程仓库。课程不依赖视频，以一个贯穿始终的教学模拟案例，完成“认识 AI → 写好 Prompt → 封装 Skill → 用评测选择 RAG、工具、Agent 或模型定制”的完整认知闭环。
+一套面向工作经验丰富、但刚接触生成式 AI 的联想同事的中文课程仓库。课程由 7 节 15–30 分钟短课组成，以“判断 → 委托 → 求证 → 固化 → 编排 → 评测 → 落地”逐步建立 AI 工作能力。
 
-> 内容边界：仓库中的项目、人物、客户和会议材料均为教学模拟，不代表联想真实项目、内部制度或已部署能力。真实授课和业务使用必须遵循当时有效的联想工具、数据、保密、品牌和审批要求。
+> 使用边界：仓库中的项目、人物、客户、产品、会议和流程均为教学模拟，不代表联想真实项目、内部制度或已部署能力。正式授课和业务使用必须遵循当时有效的联想工具、数据、保密、品牌和审批要求。
 
-## 课程目标
+## 最快使用方式
 
-20 分钟后，听众应能：
+1. 打开 [`site/index.html`](site/index.html)，进入可离线使用的 HTML 教材；
+2. 讲师先读 [`curriculum/program-map.md`](curriculum/program-map.md) 和 [`curriculum/instructor-runbook.md`](curriculum/instructor-runbook.md)；
+3. 每课目录中的 `outline.md` 用于屏幕内容，`speaker-script.md` 是逐分钟讲稿，`exercise.md` 与 `reference-answer.md` 配套使用；
+4. HTML 课页点击“讲师模式”可显示完整讲稿，参考答案默认折叠。
 
-1. 用“输入—推断—输出—影响”解释 AI 和大语言模型，并理解流畅不等于真实；
-2. 用“目标、必要上下文、约束、输出形式、验收与停止”五字段改写工作 Prompt；
-3. 说明 Prompt、Skill、RAG、工具、Agent、微调和预训练分别解决什么问题；
-4. 用“可交、可证、可责、可追”检查一次企业 AI 使用是否可控。
+## 七课课程地图
 
-## 直接使用
+| 课次 | 课程 | 计划时长 | 联想工作模拟 | 学员产出 |
+|---|---|---:|---|---|
+| 01 | AI 从零开始：先判断，再使用 | 20 分钟 | 跨部门会议记录整理 | AI 适用性判断卡 |
+| 02 | Prompt：把要求写成工作合同 | 25 分钟 | 模糊周报请求改写 | 五字段 Prompt 合同 |
+| 03 | 证据、数据与 RAG | 25 分钟 | 产品资料与版本核验 | 答案证据表 |
+| 04 | Skill：把一次好结果变成工作能力 | 27 分钟 | 会议记录转行动项 | Skill 候选包 |
+| 05 | 工具、工作流与 Agent | 25 分钟 | 工单与日志只读调查 | 权限与人工审批图 |
+| 06 | 评测与模型升级路线 | 28 分钟 | 冻结案例对照评测 | 技术选择矩阵 |
+| 07 | 联想场景综合实战 | 30 分钟 | 从会议输入到受控试点 | 经审计工作流与 30 天行动 |
 
-- 先看 [课程大纲](course/00-course-outline.md)，确认分钟分配和两次互动；
-- 按 [详细讲稿](course/01-speaker-script.md) 完整彩排；
-- 依据 [PPT 页纲](course/02-slide-outline.md) 制作 11 页内容页与 1 页来源附录；
-- 授课前阅读 [讲师指南](course/03-instructor-guide.md)，按现场景删减；
-- 打印或发放 [一页速查](course/04-quick-reference.md)。
+计划课时合计约 180 分钟，适合按周或集中学习。自动估时按讲稿正文、固定停顿和练习预算计算，七课参考值为 15.0–17.5 分钟，是核心讲授的最低可讲范围；计划课时还预留现场演示、学员汇报和扩展讨论。两者都不能替代讲师真实彩排。
 
-建议讲师至少进行一次真实计时彩排。自动估时的参考语速结果约为 19–20 分钟，但它不能代替人的停顿、互动和临场表达。
+## 内容与案例怎样配套
 
-## 贯穿案例
+每节课都具有同一交付结构：
 
-课程使用“跨部门项目会议记录转一页周报与行动项”作为唯一主线：
+```text
+lessons/NN-topic/
+├── outline.md            屏幕上的学术汇报式精简内容
+├── speaker-script.md     可直接讲授的逐分钟中文讲稿
+├── exercise.md           3–5 分钟课堂任务
+└── reference-answer.md   评分标准与理由
+```
 
-1. 模糊请求暴露事实补全、格式漂移和责任不清；
-2. Prompt 五字段把愿望变成可执行、可验收的任务合同；
-3. Skill 把稳定步骤、输出合同、异常规则和确定性检查封装为过程资产；
-4. 依据失败类型判断是否需要 RAG、工具、Agent、微调或预训练。
+七课共 28 份配套材料。所有练习都能产生可观察成果，而不是只让学员复述术语。完整术语边界见 [`curriculum/glossary.md`](curriculum/glossary.md)。
 
-详细对比见 [Prompt 前后案例](examples/prompt-before-after.md)。其余联想职场迁移场景见 [场景库](examples/lenovo-workplace-cases.md)。
+## 可复现的 Skill 课堂候选
 
-## 可复现验证的 Skill 课堂候选
-
-`examples/meeting-to-action-skill/` 不是一段概念描述，而是一个带配对样例、本地运行器、断言和追踪记录的课堂候选 Skill 包：
+[`examples/meeting-to-action-skill/`](examples/meeting-to-action-skill/) 提供一个配套完整的会议行动项 Skill 候选：
 
 ```text
 meeting-to-action-skill/
-├── SKILL.md
-├── examples/
-│   └── 4 组输入与人工参考答案
-├── evals/
-│   ├── cases.json、evaluation-rubric.md 与 evaluation-results.md
-│   └── runs/（本地模型输出与追踪）
-├── references/
-│   └── output-contract.md
-└── scripts/
-    ├── check_action_items.py
-    ├── evaluate_cases.py
-    └── run_ollama_demo.py
+├── SKILL.md 与 agents/openai.yaml
+├── references/output-contract.md
+├── examples/             4 组虚构输入与人工参考答案
+├── scripts/              合同检查、评测与本地运行器
+└── evals/runs/           保存的同模型基线/Skill 输出与 Trace
 ```
+
+保存结果为模糊基线 1/4、加载候选 Skill 后 4/4。该结果只证明四个虚构案例、指定本地模型、当前版本与评分合同下的课堂快照；它不是生产准确率、统计显著结论、联想系统权限或上线批准。详细边界见 [`examples/meeting-to-action-skill/TEACHING-NOTES.md`](examples/meeting-to-action-skill/TEACHING-NOTES.md)。
+
+## HTML 教材与联想品牌
+
+静态教材采用真白、近黑、灰和 Lenovo signature red 的克制视觉，桌面端为课程导航—正文—时间线三栏，移动端折叠为单栏。页面正文和控件都是可选择的原生 HTML 文本，不把内容做成图片；JavaScript 仅处理复制、答案、讲师模式和本地完成状态，不连接外部 AI API，也不上传学习者数据。
+
+Logo 文件来自 Lenovo Brand World 公开页面，保持 3:1 比例、官方颜色和最小数字宽度。来源、访问日期及 SHA-256 记录在 [`site/assets/brand/README.md`](site/assets/brand/README.md)。该记录不替代联想品牌团队的内部使用审批。
+
+## 构建与自检
 
 在仓库根目录运行：
 
 ```powershell
+python -X utf8 scripts/build_site.py
+python -X utf8 scripts/estimate_timing.py --all
+python -X utf8 scripts/check_curriculum.py
+python -X utf8 scripts/check_repo.py
 python -X utf8 examples/meeting-to-action-skill/scripts/check_action_items.py --self-test
 python -X utf8 examples/meeting-to-action-skill/scripts/evaluate_cases.py
+python -X utf8 examples/meeting-to-action-skill/scripts/evaluate_cases.py --candidate-dir examples/meeting-to-action-skill/evals/runs/2026-09-10-qwen38-q3km --suffix baseline
 python -X utf8 examples/meeting-to-action-skill/scripts/evaluate_cases.py --candidate-dir examples/meeting-to-action-skill/evals/runs/2026-09-10-qwen38-q3km --suffix skill
-python -X utf8 scripts/estimate_timing.py --output quality/timing-check.txt
-python -X utf8 scripts/check_repo.py
 ```
 
-前三条依次检查机械合同、四个参考答案和保存的本地模型输出；第四条只做时长预警；第五条检查仓库完整性。实际本地对照结果与限制见 [评测结果](examples/meeting-to-action-skill/evals/evaluation-results.md)。
+验证结果、浏览器截图、视觉差异和仍需人工完成的事项见：
 
-该样例的成熟度是“可复现课堂演示候选”：它证明本地模型在四个虚构案例上能按合同运行，并保留失败对照和哈希追踪；它不具备真实系统权限、生产监控、业务数据代表性或联想内部上线批准。
+- [`quality/self-check-report.md`](quality/self-check-report.md)
+- [`quality/site-qa.md`](quality/site-qa.md)
+- [`quality/fidelity-ledger.md`](quality/fidelity-ledger.md)
+- [`quality/content-checklist.md`](quality/content-checklist.md)
 
 ## 仓库结构
 
 ```text
-course/      课程大纲、详细讲稿、PPT 页纲、讲师指南、一页速查
-examples/    Prompt 前后对比、联想职场迁移案例、可复现 Skill 候选与本地评测
-research/    深度研究综述与来源台账
-quality/     内容清单、自动估时和最终自检报告
-scripts/     仓库结构检查与讲稿估时
-docs/        已通过的课程规格与实施计划
+curriculum/  课程地图、讲师运行手册与术语表
+lessons/     七课提纲、详细讲稿、练习和参考答案
+site/        可离线打开的总览页、七个课页与本地品牌资产
+examples/    Prompt 案例、联想场景库和可复现 Skill 候选
+research/    对标研究综述与 42 项来源台账
+quality/     时长、内容、浏览器、视觉和最终自检证据
+scripts/     HTML 构建、课程检查、仓库检查与截图脚本
+course/      保留的旧版 20 分钟先导课材料
+docs/        V2 设计规格、执行计划与视觉概念图
 ```
 
-## 研究与事实边界
+## 与旧版 20 分钟课程的关系
 
-研究优先使用国际组织、论文、公开技术规范和联想公开资料。完整出处、访问日期、使用结论及其限制见 [来源台账](research/sources.md)，论证过程见 [研究综述](research/research-synthesis.md)。其中厂商页面、产品能力和公司内部要求都可能变化，正式授课前必须复核。
+原 20 分钟单课保留在 [`course/`](course/) 中，适合作为高层概览或七课前的先导分享；它不是本次七课主教材。旧版对应的计时与检查证据也保留，避免把历史结果误当成新版七课证据。
 
-本仓库能证明的是：课程材料、引用关系、结构合同、示例脚本、静态检查和小样本本地演示已经形成。它不能证明真实授课一定达到 20 分钟、教学效果已经测量、示例 Skill 已在生产系统部署，或内容已经通过联想内部合规审批。详见 [自检报告](quality/self-check-report.md)。
+## 当前完成等级
+
+仓库达到 `LOCAL_SEVEN_LESSON_CLASSROOM_CANDIDATE`：结构、讲稿、练习、答案、研究、HTML、Skill 课堂证据和自动检查均已形成，并完成桌面与移动视觉复核。它仍不代表真人授课时长已验证、学习效果已测量、联想内部合规/品牌审批已通过，或任何示例已部署到生产系统。

@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="联想场景特化的 AI 工作方法系列课，全部案例为教学模拟。">
+  <title>评测与模型升级路线：先证据，后技术｜AI 工作新方法</title>
+  <link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到正文</a>
+  <header class="topbar">
+  <a class="course-brand" href="../index.html">AI 工作新方法</a>
+  <nav aria-label="全局导航">
+    <a href="../index.html#course-map">课程总览</a>
+    <a href="../index.html#method">学习方法</a>
+    <a href="../index.html#instructor">讲师指南</a>
+  </nav>
+  <img class="lenovo-logo" src="../assets/brand/lenovo-logo-red-horizontal.webp" width="120" height="40" alt="Lenovo">
+</header>
+<div class="lesson-shell" data-lesson="06">
+  <aside class="lesson-rail" aria-label="课程目录"><div class="rail-title">联想内部 AI 课程<small>从认知到实践</small></div><nav><a href="../lessons/01.html"><span>01</span>AI 从零开始</a><a href="../lessons/02.html"><span>02</span>Prompt 工作合同</a><a href="../lessons/03.html"><span>03</span>证据、数据与 RAG</a><a href="../lessons/04.html"><span>04</span>Skill 工作能力</a><a href="../lessons/05.html"><span>05</span>工具、工作流与 Agent</a><a href="../lessons/06.html" aria-current="page" class="active"><span>06</span>评测与模型升级</a><a href="../lessons/07.html"><span>07</span>联想场景综合实战</a></nav><div class="progress-block"><span>学习进度</span><progress value="6" max="7">6/7</progress><small>6 / 7</small></div></aside>
+  <main id="main" class="lesson-main">
+    <div class="lesson-toolbar"><span>28 分钟 · 含练习</span><div><button type="button" class="toolbar-button" data-action="copy-page">复制本课提纲</button><button type="button" class="toolbar-button" data-action="toggle-instructor" aria-pressed="false">讲师模式</button></div></div>
+    <article class="lesson-content" id="lesson-outline"><h1 id="第-06-课-评测与模型升级路线-先证据-后技术">第 06 课｜评测与模型升级路线：先证据，后技术</h1>
+<blockquote>计划 28 分钟｜教学模拟｜主要产出：技术选择矩阵与评测计划</blockquote>
+<h2 id="下课时你能做到">下课时你能做到</h2>
+<ol>
+<li>用任务集、基线、评分、版本和 Trace 组成最小评测。</li>
+<li>同时考虑质量、成本、时延和风险。</li>
+<li>根据失败类型选择 Prompt、RAG、工具、Skill、Agent、微调或预训练。</li>
+<li>解释微调、LoRA 和预训练分别处在哪一层。</li>
+</ol>
+<h2 id="评测闭环">评测闭环</h2>
+<p>定义成功 → 冻结代表性任务 → 跑基线 → 修改一层 → 同条件复测 → 分析失败 → 决定发布/继续/停止</p>
+<h2 id="技术升级顺序">技术升级顺序</h2>
+<p>Prompt → RAG/检索 → 工具 → Skill/工作流 → Agent → 微调/LoRA → 预训练</p>
+<p>这不是强制流水线，而是优先排查低成本、可解释的问题；每次升级都必须由失败证据触发。</p>
+<h2 id="来源">来源</h2>
+<p>[10][14][15][16][17][18][29][33][39]</p></article>
+    <section class="exercise-panel"><div class="section-label">动手练习</div><h2 id="第-06-课练习-失败诊断与技术选择">第 06 课练习｜失败诊断与技术选择</h2>
+<blockquote>教学模拟｜建议 4 分钟</blockquote>
+<div class="table-wrap"><table><thead><tr><th>失败观察</th><th>优先手段</th><th>必须先收集的证据</th></tr></thead><tbody><tr><td>A. 每次都漏掉“待确认事项”字段，但输入资料完整</td><td></td><td></td></tr><tr><td>B. 能回答制度问题，但引用的是已归档旧版本</td><td></td><td></td></tr><tr><td>C. 能写处理建议，但不知道当前工单状态</td><td></td><td></td></tr><tr><td>D. 在 1,000 个代表性已标注样例上，边界类别仍稳定误分；Prompt 和输入均已固定</td><td></td><td></td></tr></tbody></table></div>
+<p>补充问题：如果 D 选择微调，需要写出至少四项前置条件和一个回退方案。</p><details><summary>显示参考答案</summary><div class="answer-content"><h2 id="第-06-课参考答案-让技术匹配失败原因">第 06 课参考答案｜让技术匹配失败原因</h2>
+<blockquote>教学模拟。答案描述的是优先调查方向，不是未经评测的采购或上线建议。</blockquote>
+<div class="table-wrap"><table><thead><tr><th>失败</th><th>优先手段</th><th>关键证据</th></tr></thead><tbody><tr><td>A</td><td>Prompt/输出合同 + 确定性结构检查</td><td>冻结 20–50 个代表性输入，统计字段遗漏；确认不是资料缺失。</td></tr><tr><td>B</td><td>RAG 的版本过滤、来源优先级和冲突规则</td><td>记录检索候选、版本、生效日期、引用片段和当前权威来源。</td></tr><tr><td>C</td><td>最小权限只读工单工具</td><td>验证身份、允许字段、参数范围、工具失败与超时处理；建议仍需人审。</td></tr><tr><td>D</td><td>评估监督微调或 LoRA</td><td>独立训练/验证/测试集、稳定标签、数据授权、基线、回归集、成本与部署条件。</td></tr></tbody></table></div>
+<h3 id="D-的前置条件示例">D 的前置条件示例</h3>
+<ol>
+<li>错误可在代表性任务中稳定复现。</li>
+<li>Prompt、上下文和流程已达到可接受基线。</li>
+<li>训练数据有权使用，标签一致并覆盖边界。</li>
+<li>有完全隔离的测试集和安全/回归集。</li>
+<li>定义质量、成本、时延和风险门槛。</li>
+<li>保留旧版本，可在候选失败时回退。</li>
+</ol>
+<h3 id="评分标准">评分标准</h3>
+<p>四题每题 2 分，D 的前置条件与回退 2 分，共 10 分。若 B 选择微调安装最新知识，或 C 认为模型应凭空知道工单状态，对应题不得分。</p></div></details></section>
+    <section class="speaker-panel" aria-label="详细讲稿"><div class="section-label">讲师专用</div><h2 id="第-06-课详细讲稿-评测与模型升级路线-先证据-后技术">第 06 课详细讲稿｜评测与模型升级路线：先证据，后技术</h2>
+<blockquote>建议 28 分钟；其中数据演示、决策练习和讨论约 7 分钟。</blockquote>
+<h3 id="0-00-3-00-感觉更好-不是发布证据">0:00–3:00｜“感觉更好”不是发布证据</h3>
+<p>团队把 Prompt 改长了、换了更大的模型、加了 Agent，演示现场看起来很顺，于是说“效果明显提升”。这个结论缺什么？缺相同任务、相同评分和相同条件下的比较。</p>
+<p>生成式 AI 有随机性，好的演示也容易挑中成功案例。如果每次测试都换问题、换资料、换判断标准，我们永远不知道改动是否真的改善。今天的主题不是追求一个万能分数，而是学会用证据决定下一步技术。</p>
+<p>本课会用仓库里的会议行动项 Skill 做一个小样本示范，再把视角上升到 Prompt、RAG、Agent、微调和预训练的选择。请始终记住：四个虚构案例只能教学，不能证明生产效果。</p>
+<h3 id="3-00-7-00-最小评测的五个部件">3:00–7:00｜最小评测的五个部件</h3>
+<p>第一，任务集。它要代表实际分布，包括正常、缺失、冲突和风险边界，而不是只挑最容易成功的例子。任务集要冻结版本，测试过程中不能看见失败后偷偷改题。</p>
+<p>第二，基线。可以是原流程、无 Skill Prompt、旧模型或人工处理。没有基线，只知道候选得了多少分，不知道是否值得改变。</p>
+<p>第三，评分规则。确定性字段可用脚本检查；语义质量、业务价值和语气通常需要人工 rubric。评分项必须在看结果之前定义。</p>
+<p>第四，版本和 Trace。记录模型、Prompt、Skill、知识库、工具、时间、输入和输出。否则同一个“系统名称”下的结果不可复现。</p>
+<p>第五，成本、时延和风险。准确率提高一点，但成本十倍、等待三分钟、风险扩大，未必是好方案。企业选择应看质量—成本—时延—风险的组合。</p>
+<p>这里还要加一条：评测本身也会错。自动评分器可能偏爱某种措辞，人工评分会不一致。高影响任务要抽样复核评分，并记录无法自动判断的项目。</p>
+<h3 id="7-00-11-00-课堂证据-为什么-1-4-到-4-4-仍然要克制">7:00–11:00｜课堂证据：为什么 1/4 到 4/4 仍然要克制</h3>
+<p>仓库保存了同一本地模型在四个案例上的两组输出。模糊基线通过 1/4；加载会议行动项 Skill 后通过 4/4。检查内容包括字段完整、未知值保留、冲突暴露和未授权请求在模型前停止。</p>
+<p>这个结果支持一个局部结论：在这四个已知虚构输入和当前评分合同下，候选 Skill 比模糊基线更符合预期。它还让我们看到改进来自哪里：不是模型参数变了，而是输入合同、步骤、停止规则和确定性检查变了。</p>
+<p>为什么不能说“准确率从 25% 提升到 100%”？第一，四个案例样本太小；第二，它们由课程作者设计，可能与真实分布不同；第三，通过规则不等于业务内容优秀；第四，授权案例在模型前停止，与普通生成案例不是同一难度；第五，模型、硬件和提示版本会影响结果。</p>
+<p>专业汇报要同时说结果和证据边界。克制不会削弱专业性，反而让决策更可信。</p>
+<h3 id="11-00-16-00-先诊断失败-再选择技术层">11:00–16:00｜先诊断失败，再选择技术层</h3>
+<p>如果输出没有理解任务目标、格式或未知处理，优先修改 Prompt。这是最便宜、最透明的一层。</p>
+<p>如果缺的是最新、内部或指定来源事实，用受控检索或 RAG。不要用微调安装每天变化的知识。</p>
+<p>如果任务必须读取系统、计算或执行动作，连接最小权限工具。工具解决外部状态，不解决模型是否会正确判断。</p>
+<p>如果同类任务反复按稳定过程完成，用 Skill 或固定工作流固化资源、步骤、停止和检查。</p>
+<p>如果路径确实不可预知，需要根据环境反馈动态选择工具，而且评测证明净收益，再考虑 Agent。Agent 不是对“流程复杂”的自动回答。</p>
+<p>如果在大量代表性数据上，Prompt、上下文和流程都已稳定，但模型仍有一致的行为缺口，例如固定风格、分类边界或领域表达，再评估微调。</p>
+<p>如果目标是形成广泛基础能力、新语言能力或从大规模语料建立模型，才进入预训练。这通常是大规模数据、算力和研究工程，不是普通应用项目的第一选择。</p>
+<h3 id="16-00-20-00-微调-LoRA-和预训练到底改变什么">16:00–20:00｜微调、LoRA 和预训练到底改变什么</h3>
+<p>监督微调使用输入和理想输出样例继续训练模型，让其行为更贴近目标。它适合稳定、可重复、能收集高质量示例的行为问题。微调后仍会出错，也会产生回归，因此必须保留独立评测集。</p>
+<p>LoRA 是一种参数高效微调方法。它冻结基础权重，学习较小的低秩更新，从而减少可训练参数和显存需求。白话说，它降低了适配成本，但没有免除数据授权、标注质量、偏差、版本管理和上线评测。</p>
+<p>预训练是更基础的阶段。模型从大规模数据中形成广泛能力，需要设计数据、模型规模、训练 token 和计算预算。Chinchilla 研究提醒我们模型规模和训练数据要联合考虑。企业应用出现几个格式错误时直接谈预训练，通常是在错误层级解决问题。</p>
+<p>一个实用判断是：需要“知道最新事实”，优先 RAG；需要“稳定怎样回答”，可能考虑微调；需要“访问或改变外部世界”，使用工具；需要“形成广泛基础能力”，才是预训练。</p>
+<h3 id="20-00-24-30-练习-四个失败-应升级哪一层">20:00–24:30｜练习：四个失败，应升级哪一层</h3>
+<p>请打开练习。四个模拟失败分别选择优先手段，并写一个必须先收集的证据。四分钟。</p>
+<p>（两分钟独立完成；一分钟小组比较；一分钟追问选择微调或 Agent 的同学：为什么 Prompt、RAG 或固定工作流不够？）</p>
+<p>讲评重点是“失败原因与技术作用匹配”。输出漏掉固定字段，先改 Prompt/合同并做结构检查；回答用了旧政策，用 RAG 和版本过滤；需要查询工单状态，接只读工具；在一千个代表性样例上仍稳定误分且输入信息完整，才可能进入微调评估。</p>
+<p>即使答案是微调，下一步也不是立即训练。要先检查数据是否有权使用、标签是否一致、是否有独立测试集、上线后的成本和回退方案。</p>
+<h3 id="24-30-28-00-把技术路线写成可审计决策">24:30–28:00｜把技术路线写成可审计决策</h3>
+<p>一份专业技术建议至少包含：观察到的失败、证据规模、当前基线、候选改动、预期影响、验证方法、风险和停止条件。不要只写“建议引入大模型微调以提升准确率”。</p>
+<p>请把决策框架记成七层：Prompt、RAG、工具、Skill/工作流、Agent、微调、预训练。它不是每层都要走，而是提醒我们不要跳过更简单的解释。每次只改变主要一层，在同一评测集上比较，才能知道收益来自哪里。</p>
+<p>下一课会把这些方法组合成联想场景综合实战，并用四个问题做最终审计：可不可以交、结果可不可以证明、责任由谁承担、过程能不能追踪。</p>
+<p>今天带回岗位的动作：选一个你认为“模型不够好”的案例，先写下失败类型和三条代表性输入。只有当失败能够被复现，技术讨论才真正开始。</p>
+<p>快速收束句：评测不是最后打分，而是技术选择的起点；最专业的升级，有时是决定不升级模型。</p>
+<h3 id="讲稿来源">讲稿来源</h3>
+<p>[10][14][15][16][17][18][29][33][39]，完整链接见 <code>research/sources.md</code>。</p></section>
+    <div class="lesson-actions"><button type="button" class="button secondary" data-action="complete">标记本课完成</button><nav aria-label="课间导航"><a class="button secondary" href="05.html">上一课</a><a class="button primary" href="07.html">下一课</a></nav></div>
+  </main>
+  <aside class="lesson-timeline"><h2>教学时间线</h2><ol class="timeline"><li><time>0:00</time><span>“感觉更好”不是发布证据</span></li><li><time>3:00</time><span>最小评测的五个部件</span></li><li><time>7:00</time><span>课堂证据：为什么 1/4 到 4/4 仍然要克制</span></li><li><time>11:00</time><span>先诊断失败，再选择技术层</span></li><li><time>16:00</time><span>微调、LoRA 和预训练到底改变什么</span></li><li><time>20:00</time><span>练习：四个失败，应升级哪一层</span></li><li><time>24:30</time><span>把技术路线写成可审计决策</span></li></ol></aside>
+</div><footer class="site-footer">
+  <strong>AI 工作新方法</strong>
+  <p>内部教学候选材料。全部案例为教学模拟；使用前需按当前联想内部工具、数据、品牌与审批要求复核。</p>
+  <p>LENOVO is a trademark of Lenovo. All other trademarks are the property of their respective owners. © 2026</p>
+</footer>
+  <script src="../assets/app.js" defer></script>
+</body>
+</html>
